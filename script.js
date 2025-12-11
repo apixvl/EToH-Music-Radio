@@ -114,7 +114,7 @@ function tryAutoplay() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("playlist.json")
+  fetch("ring1.json")
     .then(res => res.json())
     .then(data => {
       playlist = data;
@@ -125,5 +125,5 @@ document.addEventListener("DOMContentLoaded", () => {
         tryAutoplay();
       });
     })
-    .catch(err => console.error("Failed to load playlist.json:", err));
+    .catch(err => console.error("Failed to load ring1.json:", err));
 });
