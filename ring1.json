@@ -1,4 +1,6 @@
 [
+  {"_comment": "Ring 1 Lobby Music"},
+  
   {
     "title": "cybrrvortex - Skyward Archipelago",
     "url": "https://static.wikia.nocookie.net/ktoh/images/8/8b/EToH_SkywardArchipelago.mp3",
@@ -134,6 +136,10 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/7/70/Final_Hours.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Annoyingly Simple Trials (ToAST)"},
+
+  
   {
     "title": "Deltarune Chapter 1 - Field of Hopes and Dreams",
     "url": "https://static.wikia.nocookie.net/ktoh/images/4/43/FOHAD.mp3",
@@ -174,6 +180,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/2/2d/LEAGUEOFLEGENDS.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Not Even a Tower (NEAT)"},
+
   {
     "title": "Wii Shop Channel",
     "url": "https://static.wikia.nocookie.net/ktoh/images/e/e0/Wii_Shop_Channel_Main_Theme_HQ.mp3",
@@ -194,6 +203,10 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/e/e0/Wii_Shop_Channel_Main_Theme_HQ.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Anger (ToA)"},
+
+  
   {
     "title": "toonlink - Wii Shop Bling",
     "url": "https://static.wikia.nocookie.net/ktoh/images/5/5c/Wii_Shop_Bling.mp3",
@@ -219,6 +232,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/f/f0/Terraria_Calamity_Mod_Music_1NF3S0N_Theme_of_Crabulon.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Madness (ToM)"},
+
   {
     "title": "Wii Shop Channel - Main Theme",
     "url": "https://static.wikia.nocookie.net/ktoh/images/e/e0/Wii_Shop_Channel_Main_Theme_HQ.mp3",
@@ -264,6 +280,14 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/5/5c/Wii_Shop_Bling.mp3",
     "bg": ""
   },
+
+  {"_comment": "Tower of Noticeable Infuriation (ToNI)"},
+
+  {
+    "title": "Super Smash Bros. Brawl - Coin Launcher",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/3/35/Coin_Launcher_-_Super_Smash_Bros._Brawl.mp3",
+    "bg": ""
+  },
   {
     "title": "Wii Shop Channel - Main Theme",
     "url": "https://static.wikia.nocookie.net/ktoh/images/e/e0/Wii_Shop_Channel_Main_Theme_HQ.mp3",
@@ -277,6 +301,11 @@
   {
     "title": "Super Smash Bros. Brawl - Bramble Blast",
     "url": "https://static.wikia.nocookie.net/ktoh/images/4/43/Super-Smash-Bros-Brawl-Bramble-Blast.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Kid2Will - Fire Aura",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/2/2e/Kid2Will_-_Fire_aura.mp3",
     "bg": ""
   },
   {
@@ -294,6 +323,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/4/41/Boss_Battle_-_Super_Smash_Bros._Brawl.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Hecc (ToH)"},
+  
   {
     "title": "Wii Shop Channel - Main Theme",
     "url": "https://static.wikia.nocookie.net/ktoh/images/e/e0/Wii_Shop_Channel_Main_Theme_HQ.mp3",
@@ -312,6 +344,11 @@
   {
     "title": "Kevin MacLeod - Carefree",
     "url": "https://static.wikia.nocookie.net/ktoh/images/2/2d/AverageYouTubeIntro.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Kevin MacLeod - Overcast",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/d/d8/Kevin-MacLeod-Overcast.mp3",
     "bg": ""
   },
   {
@@ -354,6 +391,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/0/06/ToHFloor10.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Killjoys (ToK)"},
+
   {
     "title": "Banjo-Tooie - Isle o' Hags (Primary Theme)",
     "url": "https://static.wikia.nocookie.net/ktoh/images/0/06/Isle_o_Hags_BanjoTooie.mp3",
@@ -384,6 +424,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/5/55/Vs-Tabuu-Super-Smash-Bros-Brawl.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Keyboard Yeeting (ToKY)"},
+
   {
     "title": "Nicky Flowers - Wii Shopping Channel Remix",
     "url": "https://static.wikia.nocookie.net/ktoh/images/b/bf/Wii_Shopping_Channel_Remix_-_Nicky_Flowers.mp3",
@@ -414,6 +457,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/f/f9/Two-steps-from-hell-El-Dorado.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Stress (ToS)"},
+
   {
     "title": "A Hat in Time - A New Adventure",
     "url": "https://static.wikia.nocookie.net/ktoh/images/d/de/A-Hat-in-Time-A-New-Adventure.mp3",
@@ -474,6 +520,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/4/40/Kirby_Triple_Deluxe_Music_-_Masked_Dedede-AudioTrimmer.com_5.mp3",
     "bg": ""
   },
+
+  {"_comment": "Tower of Screen Punching (ToSP)"},
+
   {
     "title": "Wii Sports - Title Screen",
     "url": "https://static.wikia.nocookie.net/ktoh/images/8/82/Wii_Sports_-_Wii_Sports_Theme.mp3",
@@ -539,6 +588,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/7/7a/04._Fissure_%28Mines%29.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Rage (ToR)"},
+
   {
     "title": "Wii Shop Channel (Video Game Remixes Remix)",
     "url": "https://static.wikia.nocookie.net/ktoh/images/4/4d/Wii_Shop_Channel_%28Remix%29.mp3",
@@ -574,6 +626,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/0/05/Remix_10_-_Rhythm_Heaven.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Impossible Expectations (ToIE)"},
+
   {
     "title": "Celeste - In the Mirror",
     "url": "https://static.wikia.nocookie.net/ktoh/images/9/92/Celeste_-_In_the_Mirror.mp3",
@@ -624,6 +679,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/1/10/KPM_-_Glory_Days.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of A Simple Time (ToAST)"},
+
   {
     "title": "Deltarune Chapter 1 - Field of Hopes and Dreams",
     "url": "https://static.wikia.nocookie.net/ktoh/images/4/43/FOHAD.mp3",
@@ -654,6 +712,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/e/e9/Epicremix.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of True Skill (ToTS)"},
+
   {
     "title": "Kevin MacLeod - Hard Boiled",
     "url": "https://static.wikia.nocookie.net/ktoh/images/f/f1/Hard_Boiled.mp3",
@@ -704,6 +765,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/1/19/Kevin_MacLeod_-_The_Descent.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Thanos Tower (TT)"},
+  
   {
     "title": "Celeste - Reflection",
     "url": "https://static.wikia.nocookie.net/ktoh/images/c/cc/Reflection.mp3",
@@ -759,6 +823,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/2/2a/Nuclear_Throne_-_Legend_of_the_Throne.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Citadel of Laptop Splitting (CoLS)"},
+
   {
     "title": "DM DOKURO - The Step Below Hell [Terraria Calamity Mod]",
     "url": "https://static.wikia.nocookie.net/ktoh/images/b/b4/DM_DOKURO_The_Step_Below_Hell_-_Theme_of_the_Profaned_Crags.mp3",
@@ -914,6 +981,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/4/40/%E3%80%90MIDI%E3%80%91Mariah_Carey_-_All_I_Want_For_Christmas_Is_You.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Grass (Monthly) (ToG)"},
+
   {
     "title": "A Hat in Time - A New Adventure",
     "url": "https://static.wikia.nocookie.net/ktoh/images/d/d9/A_Hat_in_Time_OST_A_New_Adventure.mp3",
@@ -949,6 +1019,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/0/0c/Field_of_Hopes_and_Dreams_8-Bit.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of No Distress (Monthly) (ToND)"},
+
   {
     "title": "Invincible - Instrumental",
     "url": "https://static.wikia.nocookie.net/ktoh/images/2/25/Invincible_-_Instrumental.mp3",
@@ -974,6 +1047,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/d/df/Loonboon.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Little Frustration (Monthly) (ToLF)"},
+
   {
     "title": "Wii Party - Main Menu",
     "url": "https://static.wikia.nocookie.net/ktoh/images/8/8f/Wii_Party_-_Main_Menu.mp3",
@@ -999,11 +1075,18 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/e/ee/Terraria_-_Boss_1_%28DM_DOKURO_Remix%29.mp3",
     "bg": ""
   },
+  
+  {"_comment": "April Fools 2020"},
+
+  
   {
     "title": "Wii Shop Channel",
     "url": "https://static.wikia.nocookie.net/ktoh/images/0/04/Wii_Shop_Channel.mp3",
     "bg": ""
   },
+  
+  {"_comment": "100M Celebration Mini Towers"},
+
   {
     "title": "Coda - Tires on Fire",
     "url": "https://static.wikia.nocookie.net/ktoh/images/e/e3/Coda-_Tires_On_Fire.webm",
@@ -1024,6 +1107,9 @@
     "url": "https://static.wikia.nocookie.net/ktoh/images/7/70/Atomic_Express_-_World_of_Goo_2.mp3",
     "bg": ""
   },
+  
+  {"_comment": "Tower of Slight Unhappiness (ToSU)"},
+  
   {
     "title": "Kirby 64: The Crystal Shards - Planet Popstar",
     "url": "https://static.wikia.nocookie.net/ktoh/images/0/0b/Kirby_64_The_Crystal_Shards_-_Pop_Star.mp3",
@@ -1048,7 +1134,173 @@
     "title": "Kirby's Return to Dream Land - Crash! Mid-Boss Tower",
     "url": "https://static.wikia.nocookie.net/ktoh/images/0/0d/Kirby%27s_Return_to_Dream_Land_-_King_Dedede%27s_Theme.mp3",
     "bg": ""
+  },
+  
+  {"_comment": "Steeple of Seasonal Nature (SoSN)"},
+
+  {
+    "title": "PICE - Awake Again",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/b/b0/1036479_Awake_Again.mp3",
+    "bg": ""
+  },
+  {
+    "title": "PICE - Reality",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/2/24/1193056_Reality.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Gage - frite2",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/e/e1/Gage_-_frite2.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Busan Black - Hysteria",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/c/c0/Busan_Black_-_Hysteria.mp3",
+    "bg": ""
+  },
+  {
+    "title": "kochergaa - Thaw",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/8/8d/1289493_Thaw.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Pokémon Mystery Dungeon: Gates to Infinity - Withered Savannah [PMD2 Soundfont Remix]",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/c/c3/PMD_GTI_-_Withered_Savannah_%28PMD2_Soundfont_Remix%29.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Pokémon Mystery Dungeon: Gates to Infinity - We're Back... And Now...",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/d/dd/PMD_GTI_-_We%27re_Back_And_Now.mp3",
+    "bg": ""
+  },
+  
+  {"_comment": "Tower of One Equals Zero (ToOEZ)"},
+
+  {
+    "title": "David Snell - Tomfoolery [APM Library]",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/5/5f/16_-Tomfoolery-Roblox.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Tony Lowry - Screw on the Loose [APM Library]",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/d/d9/16_-Screw-on-the-Loose-Roblox.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Dylan R. Berry, Francisco Mario Hernandez Jr, Mike Giffin, Robert Anthony Navarro - Deja Vu (Instrumental) [APM Library]",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/0/00/16_-Deja-Vu-Roblox.mp3",
+    "bg": ""
+  },
+  {
+    "title": "ORF Orchestra, Karel Krautgartner - Diamonds [APM Library]",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/6/60/Friedrich_Kruntorad_-_Diamonds.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Sheridan Tongue, DC Jansson - Radioactive [APM Library]",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/8/8d/16_-Radioactive-Roblox.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Bob Holroyd - Innocent [APM Library]",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/6/69/16_-Innocent-Roblox.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Mike Moran - 2 A.M. [APM Library]",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/0/0f/Two-a-m.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Gerd Kadenbach - Solitaire [APM Library]",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/8/82/Solitaire.mp3",
+    "bg": ""
+  },
+  {
+    "title": "James Edward Adrain Everett - Not Alone [APM Library]",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/d/d5/16_-Not-Alone-Roblox.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Romain Paillot - Sad End [APM Library]",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/2/28/16_-Sad-End-Roblox.mp3",
+    "bg": ""
   }
+
+  {"_comment": "Tower of Infinity Gauntlet (ToIG)"},
+
+  {
+    "title": "Celeste - Reflection",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/c/cc/Reflection.mp3",
+    "bg": ""
+  },
+  {
+    "title": "The Legend of Zelda: Majora's Mask - Clock Town, Third Day",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/9/90/Legend-of-Zelda-Majoras-Mask-Clock-Town-Day-3.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Nuclear Throne - Beyond the Portal (IDPD Theme)",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/4/46/Nuclear_Throne_IDPD_HQ_Theme.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Super Smash Bros. Ultimate - Galeem",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/e/e4/Galeem_Super_Smash_Bros_Ultimate.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Super Smash Bros. for Wii U - Menu",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/0/0c/UgVo94ubrWEuFAdsZRhV-qDnaIfiH37w.mp3",
+    "bg": ""
+  },
+  {
+    "title": "SoInhumane - Super Inhu Boy",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/f/ff/SoInhumane_Super_Inhu_Boy.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Radiarc - The Guardian",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/4/4a/Radiarc-TheGuardian.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Chimy727 - Chaoz Fantasy (Remake)",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/a/a8/Chimy727-Chaoz-Fantasy-Remix.mp3",
+    "bg": ""
+  },
+  {
+    "title": "The Binding of Isaac: Antibirth - The Thief (Cathedral)",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/3/3a/The_Binding_of_Isaac_Antibirth_OST_-_The_Thief_Cathedral.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Dimrain47 - At The Speed of Light (Zimnior12 Remix)",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/c/c6/At-The-Speed-Of-Light-_DOOM_-_Zimnior12-Remix_.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Nuclear Throne - This Is It (The Nuclear Throne [Phase 2])",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/2/26/Nuclear_Throne_OST_-_The_Nuclear_Throne_Phase_2.mp3",
+    "bg": ""
+  },
+  {
+    "title": "The Legend of Zelda: Tears of The Kingdom - To Her Hand",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/3/34/Tears-of-the-kingdom.mp3",
+    "bg": ""
+  },
+  {
+    "title": "The Legend of Zelda: Breath of The Wild - Dark Beast Ganon Phase 3",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/6/65/DarkBeastGanonPhase-3.mp3",
+    "bg": ""
+  },
+  {
+    "title": "Zelda: Breath of the Wild - Zelda's Lullaby (ClefferNotes Arrangement)",
+    "url": "https://static.wikia.nocookie.net/ktoh/images/b/b3/Zelda%E2%80%99s-Lullaby-Theme.mp3",
+    "bg": ""
+  }
+
+
 ]
 
 
