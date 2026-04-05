@@ -1,4 +1,4 @@
-const stationAnchor = new Date("2025-11-16T00:00:00Z");
+const stationAnchor = new Date("2026-04-01T00:00:00Z");
 
 const audio = document.getElementById("audio");
 const currentTrackEl = document.getElementById("currentTrack");
