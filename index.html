@@ -12,6 +12,42 @@
   <div class="dropdown-content" id="menuContent"></div>
 </div>
 
+<div id="loading-popup" style="
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-family: sans-serif;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    pointer-events: none;
+    animation: popupLifecycle 25s forwards;
+    opacity: 0;
+">
+    <div style="font-weight: bold; margin-bottom: 5px; color: #00ffcc;">Hold, please!</div>
+    <div style="font-size: 14px; line-height: 1.4;">
+        This is loading hundreds of tracks, give this a few seconds.<br>
+        <span style="opacity: 0.7; font-size: 12px;">If this takes more than a minute, refresh the tab.</span>
+    </div>
+</div>
+
+<style>
+@keyframes popupLifecycle {
+    0% { opacity: 0; transform: translate(-50%, -20px); }
+    5% { opacity: 1; transform: translate(-50%, 0); }
+    90% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -20px); }
+}
+</style>
+  
   <div id="radio">
     <h1>Now Playing</h1>
     <p id="currentTrack">Loading... (If it is still loading after 1 minute, refresh tab)</p>
