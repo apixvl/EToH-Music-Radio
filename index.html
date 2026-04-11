@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<div class="radio-dropdown">
+  <button class="dropbtn" id="menuBtn">Change Radio <span id="arrow">▾</span></button>
+  <div class="dropdown-content" id="menuContent">
+    <a href="index.html">Ring 1</a>
+    <a href="easter2026.html">Easter 2026: Elysian Fields</a>
+    </div>
+</div>
+
   <div id="radio">
     <h1>Now Playing</h1>
     <p id="currentTrack">Loading... (If it is still loading after 1 minute, refresh tab)</p>
@@ -14,6 +22,24 @@
     <audio id="audio" controls autoplay></audio>
   </div>
 
-  <script src="script.js"></script>
+  <script src="scripty.js"></script>
+  <script>
+const menuBtn = document.getElementById('menuBtn');
+const menuContent = document.getElementById('menuContent');
+const arrow = document.getElementById('arrow');
+
+menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Stops the click from bubbling
+    menuContent.classList.toggle('show');
+    arrow.classList.toggle('arrow-rotate');
+});
+
+// Close the menu if the user clicks outside of it
+window.addEventListener('click', () => {
+    if (menuContent.classList.contains('show')) {
+        menuContent.classList.remove('show');
+        arrow.classList.remove('arrow-rotate');
+    }
+});</script>
 </body>
 </html>
