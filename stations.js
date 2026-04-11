@@ -1,5 +1,6 @@
 window.allStations = [
-    { name: "Ring 1: Limbo", url: "index.html" },
-    { name: "Easter 2026: Elysian Fields", url: "easter2026.html" }
+    { name: "Ring 1: Limbo", url: "test.html", json: "ring1.json" },
+    { name: "Easter 2026: Elysian Fields", url: "test.html", json: "easter2026.json" },
 ];
-console.log("Stations.js has loaded the list:", window.allStations);
+
+//nevermind the url atp
