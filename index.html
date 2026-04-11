@@ -9,10 +9,7 @@
 <body>
 <div class="radio-dropdown">
   <button class="dropbtn" id="menuBtn">Change Radio <span id="arrow">▾</span></button>
-  <div class="dropdown-content" id="menuContent">
-    <a href="index.html">Ring 1</a>
-    <a href="easter2026.html">Easter 2026: Elysian Fields</a>
-    </div>
+  <div class="dropdown-content" id="menuContent"></div>
 </div>
 
   <div id="radio">
@@ -22,24 +19,55 @@
     <audio id="audio" controls autoplay></audio>
   </div>
 
+<script src="stations.js"></script>
+  
   <script src="scripty.js"></script>
+
   <script>
-const menuBtn = document.getElementById('menuBtn');
-const menuContent = document.getElementById('menuContent');
-const arrow = document.getElementById('arrow');
+    // Define everything ONCE
+    const menuBtn = document.getElementById('menuBtn');
+    const menuContent = document.getElementById('menuContent');
+    const arrow = document.getElementById('arrow');
 
-menuBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Stops the click from bubbling
-    menuContent.classList.toggle('show');
-    arrow.classList.toggle('arrow-rotate');
-});
+    // Function to build the radio list
+    function populateRadios() {
+        if (!window.allStations) {
+            console.error("stations.js is missing or empty!");
+            return;
+        }
 
-// Close the menu if the user clicks outside of it
-window.addEventListener('click', () => {
-    if (menuContent.classList.contains('show')) {
+        menuContent.innerHTML = ''; 
+
+        allStations.forEach(station => {
+            const link = document.createElement('a');
+            link.href = station.url;
+            link.textContent = station.name;
+            
+            // Check if this is the current page
+            if (window.location.pathname.includes(station.url)) {
+                link.style.color = "#00ffcc";
+                link.textContent += " (Live)";
+            }
+
+            menuContent.appendChild(link);
+        });
+    }
+
+    // Toggle logic
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); 
+        menuContent.classList.toggle('show');
+        arrow.classList.toggle('arrow-rotate');
+    });
+
+    // Close on outside click
+    window.addEventListener('click', () => {
         menuContent.classList.remove('show');
         arrow.classList.remove('arrow-rotate');
-    }
-});</script>
+    });
+
+    // Run the population
+    populateRadios();
+  </script>
 </body>
 </html>
