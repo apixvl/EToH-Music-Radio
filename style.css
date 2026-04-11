@@ -10,10 +10,11 @@ body {
   justify-content: center;
   align-items: center;
   transition: background-image 0.8s ease;
-  position: relative;
-  overflow: hidden;  
+  position: relative; /* required for the blur overlay */
+  overflow: hidden;   /* prevents blur from leaking outside */
 }
 
+/* Blur overlay */
 body::before {
   content: "";
   position: absolute;
@@ -23,7 +24,7 @@ body::before {
   height: 100%;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  z-index: -1;
+  z-index: -1; /* keep it behind your content */
 }
 
 #radio {
@@ -37,4 +38,77 @@ audio {
   width: 100%;
   max-width: 400px;
   margin-top: 1rem;
+}
+
+.radio-dropdown {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.dropbtn {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#arrow {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+/* The "V" to "^" animation */
+.arrow-rotate {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  min-width: 200px;
+  margin-top: 8px;
+  border-radius: 10px;
+  overflow-y: auto; /* Enables scrolling */
+  max-height: 300px; /* Limits height so it doesn't cover the page */
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+}
+
+/* This class will be toggled by JS */
+.show {
+  display: block !important;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s;
+}
+
+.dropdown-content a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Scrollbar styling to keep it clean */
+.dropdown-content::-webkit-scrollbar {
+  width: 6px;
+}
+.dropdown-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
 }
