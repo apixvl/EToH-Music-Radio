@@ -1,0 +1,27 @@
+{"collections":[
+ {"name":"Ring 1","kind":"lobby","color":"#F3F3F3","logo":"https://static.wikia.nocookie.net/ktoh/images/f/f5/R1Title.webp/revision/latest?cb=20260612172042","tracks":[
+  {"title":"Skyward Archipelago","artist":"cybrrvortex","label":"Regular Lobby","url":"http://youtube.com/watch?v=3dLTnci1gvU"},
+  {"title":"Example portal room track","artist":"Artist or game","label":"Portal Room","note":"example","url":""}]},
+  
+ {"name":"Ring Select","kind":"ring","color":"#6b3a8f","logo":"https://static.wikia.nocookie.net/ktoh/images/f/f5/R1Title.webp/revision/latest?cb=20260612172042","tracks":[
+  {"title":"Example common song","artist":"Artist or game","label":"Common","note":"example","url":""},
+  {"title":"Example rare song","artist":"Artist or game","label":"Rare","note":"example","url":""}]},
+  
+ {"name":"Tower of True Skill","kind":"tower","color":"#44556b","tracks":[
+  {"title":"Hard Boiled","artist":"Kevin MacLeod","label":"Floor 1","url":""},
+  {"title":"Overcast","artist":"Kevin MacLeod","label":"Floor 2","url":""},
+  {"title":"There It Is","artist":"Kevin MacLeod","label":"Floor 3","url":""},
+  {"title":"Local Forecast","artist":"Kevin MacLeod","label":"Floor 4","url":""},
+  {"title":"RetroFuture Clean","artist":"Kevin MacLeod","label":"Floor 5","url":""},
+  {"title":"Ossuary Animate","artist":"Kevin MacLeod","label":"Floor 6","url":""},
+  {"title":"Griphop","artist":"Kevin MacLeod","label":"Floor 7","url":""},
+  {"title":"In The Hall Of The Mountain King","artist":"Armin Sabol","label":"Floor 8","url":""},
+  {"title":"Intense Music 1","artist":"ROBLOX","label":"Floor 9","url":""},
+  {"title":"The Descent","artist":"Kevin MacLeod","label":"Floor 10","url":""}]},
+  
+ {"name":"Tower of Never Giving Up, Ever","kind":"tower","color":"#8f4c2a","tracks":[
+  {"title":"Self Contained Universe (Reprise)","artist":"OneShot","label":"Floor 1","color":"#562424","url":""},
+  {"title":"Sandy Wilds","artist":"Kirby's Return to Dream Land","label":"Floor 2","color":"#8F4C2A","url":""},
+  {"title":"Sunshine Airport","artist":"Mario Kart 8","label":"Floor 3","color":"#B1E5A6","url":""},
+  {"title":"Technoir","artist":"Perturbator","label":"Floor 8","color":"#750000","url":""}]}
+]}
