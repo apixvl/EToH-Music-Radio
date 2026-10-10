@@ -1,6 +1,6 @@
 {"collections":[
 
- {"name":"Ring 1","kind":"lobby","color":"#F3F3F3","logo":"https://static.wikia.nocookie.net/ktoh/images/f/f5/R1Title.webp/revision/latest?cb=20260612172042","tracks":[
+ {"name":"Ring 1: Limbo","kind":"lobby","color":"#F3F3F3","logo":"https://static.wikia.nocookie.net/ktoh/images/f/f5/R1Title.webp/revision/latest?cb=20260612172042","tracks":[
 
   {"title":"Skyward Archipelago","artist":"cybrrvortex","label":"Regular Lobby","url":"http://youtube.com/watch?v=3dLTnci1gvU"},
   {"title":"Relax (0.95x pitch)","artist":"Stephane Hirondelle","label":"Cat Therapy Area","url":"https://youtu.be/rfhsQ8O182I"},
@@ -48,7 +48,7 @@
   ]},
   
 
-  
+
   
  {"name":"Ring Select","kind":"ring","color":"#2F2061","logo":"","tracks":[
 
@@ -72,23 +72,62 @@
 
   ]},
   
- {"name":"Tower of True Skill","kind":"tower","color":"#44556b","tracks":[
-  {"title":"Hard Boiled","artist":"Kevin MacLeod","label":"Floor 1","url":""},
-  {"title":"Overcast","artist":"Kevin MacLeod","label":"Floor 2","url":""},
-  {"title":"There It Is","artist":"Kevin MacLeod","label":"Floor 3","url":""},
-  {"title":"Local Forecast","artist":"Kevin MacLeod","label":"Floor 4","url":""},
-  {"title":"RetroFuture Clean","artist":"Kevin MacLeod","label":"Floor 5","url":""},
-  {"title":"Ossuary Animate","artist":"Kevin MacLeod","label":"Floor 6","url":""},
-  {"title":"Griphop","artist":"Kevin MacLeod","label":"Floor 7","url":""},
-  {"title":"In The Hall Of The Mountain King","artist":"Armin Sabol","label":"Floor 8","url":""},
-  {"title":"Intense Music 1","artist":"ROBLOX","label":"Floor 9","url":""},
-  {"title":"The Descent","artist":"Kevin MacLeod","label":"Floor 10","url":""}]},
+
+ {"name":"Tower of Big Hole","kind":"tower","color":"#FE7C00","logo":"https://static.wikia.nocookie.net/ktoh/images/7/76/ToBHtitle.webp/revision/latest?cb=20260513010818","tracks":[
+
+  {"title":"A Place Where Darkness Sleeps","artist":"森田交一","label":"Floor 1-2","color":"#6C584B","url":"https://youtu.be/gOyaYVpCv6k"},
+  {"title":"Body of Water","artist":"TrackTribe","label":"Floor 3-4","color":"#AA5500","url":"https://youtu.be/nI_S0bXuUf4"},
+  {"title":"Dream It","artist":"TrackTribe","label":"Floor 5-7","color":"#A34B4B","url":"https://youtu.be/v-npd8MIFQ8"},
+  {"title":"The City Sinking into Twilight","artist":"森田交一","label":"Floor 8","color":"#966766","url":"https://youtu.be/pIGipF1cTxk"},
+  {"title":"Peaceful Place","artist":"森田交一","label":"Floor 9","color":"#883E3E","url":"https://youtu.be/x-CEPYoX2zk"},
+  {"title":"Rattle","artist":"TurtleBox","label":"Floor 10","color":"#7C5C46","url":""},
   
- {"name":"Tower of Never Giving Up, Ever","kind":"tower","color":"#8f4c2a","tracks":[
+  {"title":"Great Bay Temple","artist":"The Legend of Zelda: Majora's Mask","label":"Floor 1-2","color":"#6C584B","note":"Old","url":"https://youtu.be/aFCXpJvgbP0"},
+  {"title":"Twilight","artist":"The Legend of Zelda: Twilight Princess","label":"Floor 3-4","color":"#AA5500","note":"Old","url":"https://youtu.be/gsfs5JtfMtw"},
+  {"title":"Underground Desert","artist":"Terraria: Journey's End","label":"Floor 5-7","color":"#A34B4B","note":"Old","url":"https://youtu.be/07RSUhz6EVo"},
+  {"title":"Gerudo Desert","artist":"The Legend of Zelda: Twilight Princess","label":"Floor 8","color":"#966766","note":"Old","url":"https://youtu.be/9Yak_KtjMr4"},
+  {"title":"Song of Storms","artist":"The Legend of Zelda: Ocarina of Time","label":"Floor 9","color":"#883E3E","note":"Old","url":"https://youtu.be/UtgHZaq0EGs"},
+  {"title":"Ikana Canyon","artist":"The Legend of Zelda: Majora's Mask 3D","label":"Floor 10","color":"#7C5C46","note":"Old","url":"https://youtu.be/50agA5EPJfo"}
+  
+  ]},
+
+ {"name":"Tower of Overcoming Hatred","kind":"tower","color":"#FE7C00","logo":"https://static.wikia.nocookie.net/ktoh/images/2/22/ToOHtitle.webp/revision/latest?cb=20260514035452","tracks":[
+
+  {"title":"Cycles [SiIvaGunner - 'Cycles (Beta Version) - DJVI']","artist":"Similirity","label":"Floor 1","color":"#A1CF96","url":"https://youtu.be/ThT0BxuRAO8"},
+  {"title":"Crab Rave","artist":"Noisestorm","label":"Floor 2-3","color":"#94BE81","url":"https://youtu.be/cE0wfjsybIQ"},
+  {"title":"Lucent","artist":"kiynaria","label":"Floor 4","color":"#4B974B","url":"https://youtu.be/fHxChzEraYY"},
+  {"title":"Blue Velvet","artist":"Djjaner & Eshio","label":"Floor 5-6","color":"#348E40","url":"https://youtu.be/2fcvHGXq1xM"},
+  {"title":"In The Sun","artist":"MegaSphere","label":"Floor 7","color":"#506D54","url":"https://youtu.be/8_ODjFVktgs"},
+  {"title":"Soulwind","artist":"Kreyowitz & kiynaria","label":"Floor 8-10","color":"#008F9C","url":"https://youtu.be/eCq59AXw61I"},
+  
+  {"title":"Better Off Alone (DJ Glejs Remix)","artist":"Alice DJ","label":"Floor 1","color":"#A1CF96","note":"Old","url":"https://youtu.be/15Jx7WT5Eeg"},
+  {"title":"Outbreaker","artist":"Hinkik","label":"Floor 4","color":"#4B974B","note":"Old","url":"https://youtu.be/TuPCxJ3c4yA"},
+  {"title":"Heaven Rd. 2","artist":"EnV","label":"Floor 5-6","color":"#348E40","note":"Old","url":"https://youtu.be/CYjmE-mtB6g"},
+  {"title":"Microburst","artist":"EnV","label":"Floor 7","color":"#506D54","note":"Old","url":"https://youtu.be/jHVt4mpOH8A"},
+  {"title":"Time Leaper","artist":"Hinkik","label":"Floor 8-10","color":"#008F9C","note":"Old","url":"https://youtu.be/nMbx8EurE0g"}
+  
+  ]},
+
+
+ {"name":"Steeple of Eggstra Eggciting Egg Eggsploration","kind":"tower","color":"#FE7C00","logo":"https://static.wikia.nocookie.net/ktoh/images/f/f6/SoEEEETitle.webp/revision/latest?cb=20260804045948","tracks":[
+
+  {"title":"Dream Cradle","artist":"WaxTerK","label":"Floor 1","url":"https://youtu.be/VgNcO64438o"},
+  {"title":"Nomu","artist":"Good Kid","label":"Floor 2","url":"https://youtu.be/cJvJOsSfVcg"},
+  {"title":"Mimi's Delivery Service","artist":"Good Kid","label":"Floor 3","url":"https://youtu.be/JwcBpxg5O6Y"},
+  {"title":"Summer","artist":"Good Kid","label":"Floor 4","url":"https://youtu.be/QCuA_hiMdGQ"},
+  {"title":"Everything Everything","artist":"Good Kid","label":"Floor 5","url":"https://youtu.be/E8abdJk6BVw"},
+  {"title":"Tell Me You Know","artist":"Good Kid","label":"Floor 6","url":"https://youtu.be/vITzcY1KMOk"},
+  {"title":"Nowhere Land","artist":"Kevin MacLeod","label":"Win Area","url":"https://youtu.be/ExzCp14RMDI"}
+  
+  ]},
+  
+ {"name":"Tower of EXAMPLES","kind":"tower","color":"#8f4c2a","tracks":[
   {"title":"Self Contained Universe (Reprise)","artist":"OneShot","label":"Floor 1","color":"#562424","url":""},
   {"title":"Sandy Wilds","artist":"Kirby's Return to Dream Land","label":"Floor 2","color":"#8F4C2A","url":""},
   {"title":"Sunshine Airport","artist":"Mario Kart 8","label":"Floor 3","color":"#B1E5A6","url":""},
-  {"title":"Technoir","artist":"Perturbator","label":"Floor 8","color":"#750000","url":""}]}
+  {"title":"Technoir","artist":"Perturbator","label":"Floor 8","color":"#750000","url":""}
+  
+  ]}
 
 
 ]}
