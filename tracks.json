@@ -1,5 +1,7 @@
 {"collections":[
+
  {"name":"Ring 1","kind":"lobby","color":"#F3F3F3","logo":"https://static.wikia.nocookie.net/ktoh/images/f/f5/R1Title.webp/revision/latest?cb=20260612172042","tracks":[
+
   {"title":"Skyward Archipelago","artist":"cybrrvortex","label":"Regular Lobby","url":"http://youtube.com/watch?v=3dLTnci1gvU"},
   {"title":"Relax (0.95x pitch)","artist":"Stephane Hirondelle","label":"Cat Therapy Area","url":"https://youtu.be/rfhsQ8O182I"},
   {"title":"Sunset Glow [APM Library]","artist":"Thomas Balmforth","label":"Sky Lobby","url":"https://youtu.be/zPyOpt7eGJ4"},
@@ -8,16 +10,67 @@
   {"title":"Yawning Lion","artist":"Deemo","label":"Winroom","note":"Previously","url":"https://youtu.be/5WoPNsovrE4"},
   {"title":"In Hindsight (d) [APM Library]","artist":"Dave Hewson","label":"Forgotten Ridge Entrance","url":"https://youtu.be/8Q2Yr6_DxLc"},
   {"title":"Heart of the Mountain","artist":"Celeste","label":"Forgotten Ridge Entrance","note":"Previously","url":"https://youtu.be/DNOuancg5RY"},
-  {"title":"On The Beach (APM Library)","artist":"Kapono Beamer","label":"Swings","note":"Pre Mega Update","url":""}
+  {"title":"On The Beach (APM Library)","artist":"Kapono Beamer","label":"Swings","note":"Pre Mega Update","url":""},
 
-  
+  {"title":"City in the Sky [SilvaGunner - Marcy Nabor]","artist":"The Legend of Zelda: Twilight Princess","label":"ToIG Portal Room","url":"https://youtu.be/0lg8PTSQSQg"},
+  {"title":"Reflection","artist":"Celeste","label":"ToIG Portal Room","note":"Previously","url":"https://youtu.be/QfhUSYq7jEs"},
+  {"title":"AST Daily Sound","artist":"森田交一","label":"ToIG Winroom","url":"https://youtu.be/uiEyMw2lnj4"},
+  {"title":"Zelda's Lullaby (ClefferNotes Arrangement)","artist":"The Legend of Zelda: Breath of the Wild","label":"ToIG Winroom","note":"Previously","url":"https://youtu.be/tv8t6pV2aSM"},
+  {"title":"Eerie Drone B [APM Library]","artist":"Ben Howells","label":"R1TR Portal Room","url":"https://youtu.be/CkGaVBUB0FU"},
+  {"title":"Forgotten Lullaby","artist":"The Binding of Isaac: Antibirth","label":"R1TR Portal Room","note":"Previously","url":"https://youtu.be/V7P8G-SqVCg"},
+  {"title":"In Hindsight (d) (APM Library)","artist":"Juice Music","label":"Underground Portal Room","note":"Pre mega update","url":""},
+
+  {"title":"Twilight Archipelago","artist":"cybrrvortex","label":"Halloween Lobby 2026","url":"https://www.youtube.com/watch?v=zCPSPny7w0g"},
+  {"title":"Gruntilda's Lair (Orchestral Cover)","artist":"Banjo-Kazooie","label":"Halloween Lobby 2025","url":"https://youtu.be/5kyCxZknvN0"},
+  {"title":"My Castle Town (Osirois Music Cover)","artist":"Deltarune Chapter 2","label":"Christmas Lobby 2024","url":"https://youtu.be/Xrq9rIRVoJo"},
+  {"title":"Ravaged Rustworks","artist":"Hey! Pikmin","label":"Christmas Lobby 2024","note":"Previously","url":"https://youtu.be/Scgz4VnVHmc"},
+  {"title":"Hip Shop","artist":"Deltarune Chapter 1","label":"Ticket Shop","note":"Christmas Event 2024","url":"https://youtu.be/D83BxptHcRc"},
+  {"title":"Wii Shop Channel (Dominic Ninmark Eurobeat Remix)","artist":"","label":"100 Million Visits + Legacy Event 2024","url":"https://youtu.be/gmaIv5JaryU"},
+  {"title":"Witchyworld","artist":"Banjo-Tooie","label":"Halloween Lobby Music","note":"2023 Phase 2","url":"https://youtu.be/rcDMwOBF3-o"},
+  {"title":"Eclipse","artist":"Terraria","label":"Halloween Lobby Music","note":"2022 Destroyed","url":"https://youtu.be/pMNUlKUMw0E"},
+  {"title":"Gruntilda's Lair (Qumu Remix)","artist":"Banjo-Kazooie","label":"Halloween Lobby Music","note":"2022 Phase 1","url":"https://youtu.be/pQ0zOkGAPaw"},
+  {"title":"Gruntilda's Lair","artist":"Banjo-Kazooie","label":"Halloween Lobby Music","note":"2018-2022 Phase 2, 2023 Phase 1","url":"https://youtu.be/_MjB4QYrNBY"},
+  {"title":"Freezeezy Peak","artist":"Banjo-Kazooie","label":"Christmas Lobby Music","note":"2018-2023 & 2025","url":"https://youtu.be/DsVNLCGB1Uk"},
+  {"title":"Hailfire Peaks (Ice Side)","artist":"Banjo-Tooie","label":"Blizzard Lobby","url":"https://youtu.be/ZncbwCGLF7s"},
+  {"title":"Theme (December 2013)","artist":"Nintendo eShop","label":"Ornament Shop","note":"Christmas Event 2021","url":"https://youtu.be/ZXlSfF5erMk"},
+
+  {"title":"Shop halation [SiIvaGunner - 'Main Theme (JP Version) - Wii Shop Channel']","artist":"Eva Twin","label":"Regular Lobby Alternative Music","url":"https://youtu.be/_6QjyPHsLns"},
+  {"title":"Wii Shop Channel","artist":"","label":"Regular Lobby Alternative Music","note":"Previously","url":"https://youtu.be/yyjUmv1gJEg"},
+  {"title":"In Hindsight (d) [APM Library]","artist":"Dave Hewson","label":"Floor 0, Tower of Anger Tower Rush, and TT Portal Room","url":"https://youtu.be/8Q2Yr6_DxLc"},
+  {"title":"Final Hours","artist":"The Legend of Zelda: Majora's Mask","label":"TT Portal Room","note":"during Ring 1's Lobby Revamp release","url":"https://youtu.be/y5xQnN53VI8"},
+  {"title":"Legend of the Throne","artist":"Nuclear Throne","label":"TT Winroom","url":"https://youtu.be/FXB3f5RKV1A"},
+  {"title":"Run Away, Fugitives","artist":"Pokémon Mystery Dungeon: Blue Rescue Team","label":"Secret Staff Team Room","url":"https://youtu.be/YBXBDqaIL28"},
+  {"title":"Goodnight","artist":"Pokémon Mystery Dungeon: Explorers of Sky","label":"ToIE Staff Secret","url":"https://youtu.be/CuKS4a2BQh4"},
+  {"title":"Reflection","artist":"Hollow Knight","label":"Trolley to Forgotten Ridge","url":"https://youtu.be/nC3Dd3eqZy8"},
+  {"title":"Shop","artist":"Super Smash Bros. Ultimate","label":"Ticket Shop","url":"https://youtu.be/gMMN5mODkqQ"},
+  {"title":"Chao Garden (Hero)","artist":"Sonic Adventure 2","label":"Pride Shop","url":"https://youtu.be/n1jhLPoUkxU"}
+
   ]},
   
 
   
- {"name":"Ring Select","kind":"ring","color":"#6b3a8f","logo":"https://static.wikia.nocookie.net/ktoh/images/f/f5/R1Title.webp/revision/latest?cb=20260612172042","tracks":[
-  {"title":"Example common song","artist":"Artist or game","label":"Common","note":"example","url":""},
-  {"title":"Example rare song","artist":"Artist or game","label":"Rare","note":"example","url":""}]},
+  
+ {"name":"Ring Select","kind":"ring","color":"#2F2061","logo":"","tracks":[
+
+  {"title":"Battlerock Galaxy","artist":"Super Mario Galaxy","label":"Regular","url":"https://youtu.be/K9Vgc8ojqQA"},
+
+  {"title":"Main Menu","artist":"Super Smash Bros. Brawl","label":"Alternate Music Secret","url":"https://youtu.be/zeKE0NHUtUw"},
+  {"title":"Final Destination","artist":"Super Smash Bros. Brawl","label":"Old Music Secret","url":"https://youtu.be/Kmwt9ko2_ik"},
+  {"title":"Duality","artist":"Dimrain47","label":"The Matchaverse","url":"https://youtu.be/JhkIRzZsZvw"},
+  {"title":"Pipe Interior","artist":"Super Mario Galaxy","label":"Gooey Secret","url":"https://youtu.be/D0_JrTAGpmA"},
+  {"title":"Flip-Swap Galaxy","artist":"Super Mario Galaxy 2","label":"Gooey Secret + Old Music Secret","url":"https://youtu.be/X0ceqgw3PUQ"},
+  {"title":"Snowpeak","artist":"The Legend of Zelda: Twilight Princess","label":"Frozen Ring Select","url":"https://youtu.be/9jdmz1bnwLo"},
+  {"title":"Enter Here A (APM Library)","artist":"Wesley Plass","label":"Unknown","url":"https://youtu.be/6unha-j7Fhw"},
+  
+  {"title":"Air Ride: Frozen Hillside","artist":"Kirby Air Ride","label":"Christmas Event 2019","url":"https://youtu.be/wpftpnZptDU"},
+  {"title":"Snowy Fields","artist":"Kirby's Epic Yarn","label":"Christmas Event 2021, Winter Event 2022, Christmas Event 2023, Alternate Christmas Event 2024, and Christmas Event 2025","url":"https://youtu.be/yGVqtRl3i2E"},
+  {"title":"Trunk Twister (Underwater)","artist":"Donkey Kong Country: Tropical Freeze","label":"Christmas Event 2024","url":"https://youtu.be/s_p147TmjKQ"},
+  {"title":"Dark Rooms","artist":"Luigi's Mansion","label":"Alternate Halloween Event 2020","url":"https://youtu.be/Gr4FdprPhCo"},
+  {"title":"Haunted Towers Theme","artist":"Luigi's Mansion: Dark Moon","label":"Halloween Event 2019, 2020, 2022, 2023, and 2025","url":"https://youtu.be/VIMRevu-VQM"},
+  {"title":"Sweet & Scary","artist":"Spooky Month","label":"Halloween Lobby 2026","url":"https://youtu.be/Y-ZcFy6M6sM"},
+  {"title":"Kiddie's Tower of Hell Rap","artist":"iYoz","label":"April Fools 2020","url":"https://youtu.be/f7TFk5ikqto"}
+
+  ]},
   
  {"name":"Tower of True Skill","kind":"tower","color":"#44556b","tracks":[
   {"title":"Hard Boiled","artist":"Kevin MacLeod","label":"Floor 1","url":""},
@@ -36,4 +89,6 @@
   {"title":"Sandy Wilds","artist":"Kirby's Return to Dream Land","label":"Floor 2","color":"#8F4C2A","url":""},
   {"title":"Sunshine Airport","artist":"Mario Kart 8","label":"Floor 3","color":"#B1E5A6","url":""},
   {"title":"Technoir","artist":"Perturbator","label":"Floor 8","color":"#750000","url":""}]}
+
+
 ]}
