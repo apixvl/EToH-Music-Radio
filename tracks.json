@@ -108,6 +108,30 @@
   
   ]},
 
+ {"name":"Tower of Peaceful Happiness and Tranquility (Classic)","kind":"tower","color":"#76F447","logo":"https://static.wikia.nocookie.net/ktoh/images/e/e6/ToPHaT%28C%29Title.webp/revision/latest?cb=20260816185936","tracks":[
+
+  {"title":"Peace and Tranquility","artist":"A Hat in Time: Seal the Deal","label":"Floor 1-2","color":"#FF5959","url":"https://youtu.be/SHvhps47Lmc"},
+  {"title":"Medicine","artist":"Joji","label":"Floor 3-4","color":"#E8BAC8","url":"https://youtu.be/Lg35jIwoWcQ"},
+  {"title":"Tired","artist":"Yumi Rose","label":"Floor 5-6","color":"#CCFFCC","url":"https://youtu.be/Y0dN7hfjdSY"},
+  {"title":"5:32 PM","artist":"The Deli","label":"Floor 7-8","color":"#4B974B","url":"https://youtu.be/ADp9P3p85w0"},
+  {"title":"Springtime Stroll","artist":"secret crates","label":"Floor 9-10","color":"#27462D","url":"https://youtu.be/3VxUseId_4g"}
+
+  ]},
+
+ {"name":"Thanos Tower (Classic)","kind":"tower","color":"#0000FF","logo":"https://static.wikia.nocookie.net/ktoh/images/c/ce/TT%28C%29Title.webp/revision/latest?cb=20260922030801","tracks":[
+
+  {"title":"Clock Town, Third Day","artist":"The Legend of Zelda: Majora's Mask","label":"Floor 1","color":"#3D1585","url":"https://youtu.be/AWhxQPha_uY"},
+  {"title":"Beyond the Portal (IDPD Theme)","artist":"Nuclear Throne","label":"Floor 2-3","color":"#6225D1","url":"https://youtu.be/NNoife57o34"},
+  {"title":"The World Revolving","artist":"Deltarune Chapter 1","label":"Floor 4","color":"#7B2F7B","url":"https://youtu.be/Z01Tsgwe2dQ"},
+  {"title":"Forward","artist":"Realistik (Rukkus)","label":"Floor 5","color":"#2154B9","url":"https://youtu.be/jPU4mKpaMcw"},
+  {"title":"The Thief (Cathedral)","artist":"The Binding of Isaac: Antibirth","label":"Floor 6","color":"#A75E9B","url":"https://youtu.be/fwBr57fjVj8"},
+  {"title":"Chaoz Fantasy (Remake)","artist":"Chimy727","label":"Floor 7","color":"#FF0000","url":""},
+  {"title":"Latter Days","artist":"The Binding of Isaac","label":"Floor 8","color":"#FFFF00","url":"https://youtu.be/jmr1l130HOs"},
+  {"title":"Terminus","artist":"The Binding of Isaac: Afterbirth","label":"Floor 9","color":"#00FF00","url":"https://youtu.be/Y4Fz-XLi8U4"},
+  {"title":"This Is It (The Nuclear Throne (Phase 2))","artist":"Nuclear Throne","label":"Floor 10","color":"#FDEA8D","url":"https://youtu.be/D6d1sY2uONs"},
+  {"title":"Normal Boss","artist":"Freedom Planet","label":"Floor 10","color":"#FDEA8D","note":"Previously/Alternate","url":"https://youtu.be/7HCCHqWA_EQ"}
+
+  ]},
 
  {"name":"Steeple of Eggstra Eggciting Egg Eggsploration","kind":"tower","color":"#FE7C00","logo":"https://static.wikia.nocookie.net/ktoh/images/f/f6/SoEEEETitle.webp/revision/latest?cb=20260804045948","tracks":[
 
