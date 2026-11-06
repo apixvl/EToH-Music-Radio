@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quick tools</title>
+<style>
+:root{--bg:#f7f8f7;--panel:#fff;--soft:#eef1ef;--fg:#1b1f1d;--mut:#66706b;--bd:#dde2df;--ac:#15803d;--acf:#fff;--ac2:#dcfce7;--warn:#b45309;--r:10px}
+@media (prefers-color-scheme:dark){:root{--bg:#141716;--panel:#1b1f1d;--soft:#242a27;--fg:#e8ede9;--mut:#8f9b94;--bd:#2c3430;--ac:#4ade80;--acf:#07210f;--ac2:#163824;--warn:#fbbf24}}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}
+aside{position:sticky;top:0;height:100vh;overflow:auto;padding:22px 16px;border-right:1px solid var(--bd);background:var(--panel)}
+.brand{font-weight:700;font-size:17px;margin-bottom:12px}
+aside input[type=search]{width:100%;margin-bottom:12px}
+#tocnav{display:flex;flex-direction:column;gap:2px}
+#tocnav a{display:flex;gap:8px;padding:6px 10px;border-radius:8px;color:var(--fg);text-decoration:none;border-left:3px solid transparent}
+#tocnav a span{color:var(--mut);min-width:1.2em}
+#tocnav a:hover{background:var(--soft)}
+#tocnav a.on{background:var(--ac2);border-left-color:var(--ac);font-weight:600}
+.tocbtns{display:flex;gap:6px;margin-top:16px}
+main{padding:34px clamp(16px,4vw,56px) 80px;max-width:1000px;width:100%;counter-reset:t}
+main>header{margin-bottom:26px}
+h1{font-size:30px;letter-spacing:-.02em}
+.sub{color:var(--mut);margin-top:4px}
+section.tool{counter-increment:t;background:var(--panel);border:1px solid var(--bd);border-radius:14px;margin-bottom:22px}
+summary{list-style:none;cursor:pointer;padding:18px 22px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;position:relative;padding-right:50px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"▾";position:absolute;right:22px;top:20px;color:var(--mut);transition:.2s}
+details:not([open])>summary::after{transform:rotate(-90deg)}
+summary h2{font-size:20px}
+summary h2::before{content:counter(t) ". ";color:var(--ac)}
+.desc{color:var(--mut);font-size:14px}
+.body{padding:4px 22px 24px;border-top:1px solid var(--bd);padding-top:20px}
+label{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--mut)}
+input,select,textarea,button{font:inherit;color:var(--fg)}
+input[type=text],input[type=number],input[type=search],select,textarea{background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:7px 10px}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--ac);outline-offset:1px}
+textarea{width:100%;resize:vertical;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace}
+button{background:var(--soft);border:1px solid var(--bd);border-radius:8px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--ac)}
+button.p{background:var(--ac);color:var(--acf);border-color:var(--ac);font-weight:600}
+.row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:10px 0}
+.note{color:var(--mut);font-size:13px}
+.warn{color:var(--warn);font-size:13px}
+.copy{cursor:pointer;font:600 15px ui-monospace,Menlo,Consolas,monospace;background:var(--soft);border:1px dashed var(--bd);border-radius:8px;padding:6px 10px;display:inline-block;margin:2px 4px 2px 0}
+.copy:hover{border-color:var(--ac);border-style:solid}
+.big{font-size:24px;font-weight:700}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r);padding:14px}
+.card h3{font-size:14px;color:var(--mut);font-weight:600;margin-bottom:8px}
+.drop{border:2px dashed var(--bd);border-radius:var(--r);padding:26px;text-align:center;color:var(--mut)}
+.drop.over{border-color:var(--ac);background:var(--ac2)}
+.drop u{color:var(--ac);cursor:pointer}
+.frame{position:relative;display:inline-block;max-width:100%;line-height:0;border-radius:6px;overflow:hidden;border:1px solid var(--bd)}
+.frame img{max-width:100%;max-height:340px}
+.edge{position:absolute;inset:0;pointer-events:none;border:0 solid rgba(21,128,61,.45)}
+.sw{height:70px;border-radius:8px;border:1px solid var(--bd);margin-bottom:8px}
+.pvwrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:5px 6px;text-align:left;border-bottom:1px solid var(--bd)}
+th{color:var(--mut);font-weight:600;font-size:12px}
+td input[type=text]{width:100%}
+td.len input{width:78px}
+td.n,td.st{white-space:nowrap;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;max-height:380px;overflow-y:auto;border:1px solid var(--bd);border-radius:8px}
+.mini{padding:2px 7px}
+#toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,90px);background:var(--fg);color:var(--bg);padding:8px 16px;border-radius:99px;font-size:14px;transition:.25s;z-index:9;pointer-events:none}
+#toast.on{transform:translate(-50%,0)}
+h3.sec{font-size:12px;color:var(--mut);margin:16px 0 6px;text-transform:uppercase;letter-spacing:.05em}
+progress{width:100%;height:8px;accent-color:var(--ac)}
+input[type=range]{accent-color:var(--ac)}
+input[type=color]{width:34px;height:28px;padding:0;border:1px solid var(--bd);border-radius:6px;background:none;cursor:pointer}
+.res{margin-top:14px}.res img,.res video{max-width:100%;max-height:380px;border-radius:8px;border:1px solid var(--bd)}
+.body{position:relative}
+.emoji{position:absolute;z-index:6;width:310px;max-height:220px;overflow:auto;background:var(--panel);border:1px solid var(--bd);border-radius:10px;padding:8px;display:grid;grid-template-columns:repeat(8,1fr);gap:2px;box-shadow:0 8px 28px #0005}
+.emoji button{border:0;background:none;font-size:20px;padding:3px;line-height:1.2}.emoji button:hover{background:var(--soft)}
+.lay{display:flex;gap:6px;align-items:center;margin:4px 0;padding:4px;border-radius:8px;border:1px solid transparent}
+.lay.on{border-color:var(--ac);background:var(--ac2)}.lay input{flex:1;min-width:0}
+.pxwrap{position:relative;display:inline-block;line-height:0;border:1px solid var(--bd);cursor:crosshair;max-width:100%;overflow:auto}
+.pxwrap canvas{image-rendering:pixelated;display:block;background:repeating-conic-gradient(#8883 0 25%,transparent 0 50%) 0 0/16px 16px}
+.pxgrid{position:absolute;inset:0;pointer-events:none}
+.pxsel{position:absolute;pointer-events:none;box-shadow:0 0 0 1px #fff,0 0 0 3px #000}
+.sws{display:flex;flex-wrap:wrap;gap:3px;margin-top:8px}.sws button{width:22px;height:22px;padding:0;border-radius:4px}
+.hist{height:190px;overflow:auto;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:8px;font:14px ui-monospace,Menlo,Consolas,monospace}
+.hist div{display:flex;justify-content:space-between;gap:10px;padding:2px 0}.hist .e{cursor:pointer;color:var(--mut)}.hist .r{cursor:pointer;font-weight:700}
+.keys{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px}
+.keys button{padding:10px 0;font-weight:600}.keys .op{background:var(--ac2)}.keys .eq{background:var(--ac);color:var(--acf);border-color:var(--ac)}
+.calc{max-width:430px}.calc .ln{width:100%;font:18px ui-monospace,Menlo,Consolas,monospace;margin-top:8px}
+.live{min-height:1.5em;text-align:right;color:var(--mut);font:14px ui-monospace,Menlo,Consolas,monospace}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px solid var(--bd)}
+@media(max-width:860px){.layout{grid-template-columns:1fr}aside{position:static;height:auto;border-right:0;border-bottom:1px solid var(--bd)}.pvwrap{grid-template-columns:1fr}}
+</style>
+<script>
+const q=(s,r=document)=>r.querySelector(s),$=(s,r=document)=>[...r.querySelectorAll(s)];
+function toast(t){const e=q("#toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("on"),1500)}
+async function copy(text,label){
+  try{await navigator.clipboard.writeText(text)}catch(e){const a=document.createElement("textarea");a.value=text;document.body.append(a);a.select();document.execCommand("copy");a.remove()}
+  toast("Copied "+(label||text));
+}
+/* Makes any element with class .copy click-to-copy; call after changing its text */
+document.addEventListener("click",e=>{const c=e.target.closest(".copy");if(c)copy(c.textContent)});
+
+/* ---------- shared helpers used by several tools (window.QT) ---------- */
+const QT=window.QT={sleep:ms=>new Promise(r=>setTimeout(r,ms))};
+QT.draw=(ctx,d,...a)=>{ctx.drawImage(d,...a);if(window.VideoFrame&&d instanceof VideoFrame)d.close()};
+QT.save=(b,n)=>{const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=n;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),5000)};
+QT.kb=n=>n>1048576?(n/1048576).toFixed(2)+" MB":Math.round(n/1024)+" KB";
+QT.drop=(zone,cb,paste)=>{
+  const inp=zone.querySelector("input[type=file]");
+  zone.addEventListener("click",e=>{if(e.target!==inp)inp.click()});
+  inp.onchange=()=>inp.files[0]&&cb(inp.files[0]);
+  ["dragenter","dragover"].forEach(n=>zone.addEventListener(n,e=>{e.preventDefault();zone.classList.add("over")}));
+  ["dragleave","drop"].forEach(n=>zone.addEventListener(n,e=>{e.preventDefault();zone.classList.remove("over")}));
+  zone.addEventListener("drop",e=>e.dataTransfer.files[0]&&cb(e.dataTransfer.files[0]));
+  if(paste)addEventListener("paste",e=>{const f=[...(e.clipboardData?.files||[])][0];if(f)cb(f)});
+};
+/* Open a GIF / video / image as a frame source: {kind,w,h,dur,frameAt(sec),iter(fps,t0,t1)} */
+QT.open=async file=>{
+  const t=file.type;
+  if(t==="image/gif"&&"ImageDecoder" in window){
+    const dec=new ImageDecoder({data:await file.arrayBuffer(),type:t});
+    await dec.tracks.ready;await dec.completed;
+    const n=dec.tracks.selectedTrack.frameCount,durs=[],starts=[];let w=0,h=0,tot=0;
+    for(let i=0;i<n;i++){const {image}=await dec.decode({frameIndex:i});w=image.displayWidth;h=image.displayHeight;let d=(image.duration||0)/1e6;if(d<=.011)d=.1;image.close();starts.push(tot);durs.push(d);tot+=d}
+    const at=s=>{const i=starts.findIndex((x,k)=>s<x+durs[k]);return i<0?n-1:i};
+    return{kind:"gif",w,h,dur:tot,n,
+      async frameAt(s){return(await dec.decode({frameIndex:at(s)})).image},
+      async*iter(fps,t0,t1){
+        if(!fps){for(let i=0;i<n;i++){if(starts[i]+durs[i]<=t0||starts[i]>=t1)continue;yield{img:(await dec.decode({frameIndex:i})).image,delay:durs[i],t:starts[i]}}}
+        else for(let t=t0;t<t1;t+=1/fps)yield{img:await this.frameAt(t),delay:1/fps,t}}};
+  }
+  if(t.startsWith("video/")){
+    const v=document.createElement("video");v.muted=true;v.playsInline=true;v.preload="auto";v.src=URL.createObjectURL(file);
+    await new Promise((ok,no)=>{v.onloadeddata=ok;v.onerror=()=>no(new Error("This browser can't read that video format"))});
+    const seek=async s=>{s=Math.max(0,Math.min(s,v.duration-.01));if(Math.abs(v.currentTime-s)<.001&&v.readyState>=2)return v;const p=new Promise(r=>v.addEventListener("seeked",r,{once:true}));v.currentTime=s;await p;return v};
+    return{kind:"video",w:v.videoWidth,h:v.videoHeight,dur:v.duration,frameAt:seek,
+      async*iter(fps,t0,t1){const st=1/(fps||24);for(let t=t0;t<t1;t+=st)yield{img:await seek(t),delay:st,t}}};
+  }
+  const bmp=await createImageBitmap(file);
+  return{kind:"image",w:bmp.width,h:bmp.height,dur:0,frameAt:async()=>bmp,async*iter(){yield{img:bmp,delay:1,t:0}},
+    warn:t==="image/gif"?"This browser can't decode animated GIFs (use Chrome, Edge or a recent Safari); only the first frame is used.":""};
+};
+/* Median-cut palette from RGBA pixels */
+QT.palette=(px,n)=>{
+  const cols=[],st=Math.max(1,Math.floor(px.length/4/8000));
+  for(let i=0;i<px.length;i+=4*st)if(px[i+3]>=128)cols.push([px[i],px[i+1],px[i+2]]);
+  if(!cols.length)return[[0,0,0]];
+  const boxes=[cols];
+  while(boxes.length<n){
+    let bi=-1,bs=0,bc=0;
+    boxes.forEach((b,i)=>{if(b.length<2)return;for(let c=0;c<3;c++){let lo=255,hi=0;for(const p of b){if(p[c]<lo)lo=p[c];if(p[c]>hi)hi=p[c]}const s=(hi-lo)*Math.sqrt(b.length);if(s>bs){bs=s;bi=i;bc=c}}});
+    if(bi<0)break;
+    const b=boxes[bi].sort((x,y)=>x[bc]-y[bc]),m=b.length>>1;
+    boxes.splice(bi,1,b.slice(0,m),b.slice(m));
+  }
+  return boxes.map(b=>[0,1,2].map(c=>Math.round(b.reduce((s,p)=>s+p[c],0)/b.length)));
+};
+QT.nearest=(pal,r,g,b)=>{let best=0,bd=1e9;for(let i=0;i<pal.length;i++){const p=pal[i],d=(p[0]-r)**2+(p[1]-g)**2+(p[2]-b)**2;if(d<bd){bd=d;best=i}}return best};
+QT.quantize=(d,pal,sh=3)=>{const n=d.length/4,idx=new Uint8Array(n),cache=new Map();
+  for(let i=0;i<n;i++){const r=d[i*4],g=d[i*4+1],b=d[i*4+2],k=((r>>sh)<<16)|((g>>sh)<<8)|(b>>sh);let v=cache.get(k);if(v===undefined){v=QT.nearest(pal,r,g,b);cache.set(k,v)}idx[i]=v}
+  return idx};
+QT.lzw=(minCode,idx)=>{
+  const clear=1<<minCode,eoi=clear+1,out=[],dict=new Map();let size=minCode+1,next=eoi+1,cur=0,bits=0;
+  const emit=(c,chk)=>{cur|=c<<bits;bits+=size;while(bits>=8){out.push(cur&255);cur>>>=8;bits-=8}if(chk&&next>(1<<size)-1&&size<12)size++};
+  emit(clear);let pre=idx[0];
+  for(let i=1;i<idx.length;i++){
+    const k=(pre<<8)|idx[i],v=dict.get(k);
+    if(v!==undefined)pre=v;
+    else{emit(pre,true);if(next<4096)dict.set(k,next++);else{emit(clear);dict.clear();size=minCode+1;next=eoi+1}pre=idx[i]}
+  }
+  emit(pre,true);emit(eoi);if(bits>0)out.push(cur&255);return out;
+};
+QT.GifEnc=class{
+  constructor(w,h){this.w=w;this.h=h;const s=x=>[...x].map(c=>c.charCodeAt(0));this.p=[new Uint8Array([...s("GIF89a"),w&255,w>>8,h&255,h>>8,0,0,0,0x21,0xFF,0x0B,...s("NETSCAPE2.0"),3,1,0,0,0])]}
+  add(data,cs,colors){
+    const pal=QT.palette(data,colors),idx=QT.quantize(data,pal);
+    let bits=2;while((1<<bits)<pal.length)bits++;
+    const ct=new Uint8Array(3<<bits);pal.forEach((c,i)=>ct.set(c,i*3));
+    const head=new Uint8Array([0x21,0xF9,4,4,cs&255,cs>>8,0,0,0x2C,0,0,0,0,this.w&255,this.w>>8,this.h&255,this.h>>8,0x80|(bits-1)]);
+    const code=QT.lzw(bits,idx),sub=[bits];
+    for(let i=0;i<code.length;i+=255){const l=Math.min(255,code.length-i);sub.push(l);for(let k=0;k<l;k++)sub.push(code[i+k])}
+    sub.push(0);this.p.push(head,ct,new Uint8Array(sub));
+  }
+  finish(){return new Blob([...this.p,new Uint8Array([0x3B])],{type:"image/gif"})}
+};
+QT.Rec=class{
+  constructor(c,bps){
+    const m=["video/mp4;codecs=avc1.42E01E","video/mp4;codecs=avc1","video/mp4","video/webm;codecs=vp9","video/webm"].find(x=>window.MediaRecorder&&MediaRecorder.isTypeSupported(x));
+    if(!m)throw new Error("This browser can't record video");
+    this.ext=m.startsWith("video/mp4")?"mp4":"webm";const s=c.captureStream(0);this.tr=s.getVideoTracks()[0];this.ch=[];
+    this.mr=new MediaRecorder(s,{mimeType:m,videoBitsPerSecond:bps});this.mr.ondataavailable=e=>e.data.size&&this.ch.push(e.data);this.mr.start(500);
+  }
+  frame(){this.tr.requestFrame()}
+  stop(){return new Promise(r=>{this.mr.onstop=()=>r(new Blob(this.ch,{type:this.mr.mimeType}));this.mr.stop()})}
+};
+/* Stream every frame of `src` through paint(ctx,img) into a GIF or MP4. MP4 is recorded in real time. */
+QT.render=async(src,o)=>{
+  const{W,H,paint,fmt,fps=0,t0=0,colors=256,bpp=.12,ctl={},progress=()=>{}}=o,t1=o.t1||src.dur||0;
+  const c=document.createElement("canvas");c.width=W;c.height=H;
+  const ctx=c.getContext("2d",{willReadFrequently:true});
+  const enc=fmt==="gif"?new QT.GifEnc(W,H):null,rec=enc?null:new QT.Rec(c,Math.round(W*H*(fps||15)*bpp));
+  const start=performance.now();let due=0;
+  for await(const f of src.iter(fps,t0,t1)){
+    if(ctl.stop)throw new Error("Cancelled");
+    ctx.fillStyle="#fff";ctx.fillRect(0,0,W,H);paint(ctx,f.img);
+    if(enc){enc.add(ctx.getImageData(0,0,W,H).data,Math.max(2,Math.round(f.delay*100)),colors)}
+    else{rec.frame();due+=f.delay*1000;await QT.sleep(Math.max(0,start+due-performance.now()))}
+    progress(t1>t0?Math.min(1,(f.t-t0)/(t1-t0)):1);
+  }
+  return enc?{blob:enc.finish(),ext:"gif"}:{blob:await rec.stop(),ext:rec.ext};
+};
+</script>
+</head>
+<body>
+<div class="layout">
+<aside>
+  <div class="brand">Quick tools</div>
+  <input type="search" id="tocq" placeholder="Filter tools…" aria-label="Filter tools">
+  <nav id="tocnav" aria-label="Contents"></nav>
+  <div class="tocbtns"><button id="exp">Expand all</button><button id="col">Collapse all</button></div>
+</aside>
+
+<main>
+<header>
+  <h1>Quick tools</h1>
+  <p class="sub">Small utilities for things I keep Googling. Everything runs locally in your browser.</p>
+</header>
+
+<!--
+  HOW TO ADD A TOOL
+  1. Copy the template at the very bottom of this file, paste it below the last </section>.
+  2. Change id (unique, no spaces), data-title (shown in the contents list) and the heading.
+  3. Put your HTML in .body and your JS in the section's own <script>. Inside it, `q('.x')` finds
+     elements within YOUR tool only, so ids/classes never clash with other tools.
+  The contents list, numbering, collapsing and filter pick it up automatically.
+  Helpers: copy(text,label) copies and shows a toast; any element with class="copy" copies its own text on click.
+-->
+
+<!-- ============ 1. AVERAGE COLOR ============ -->
+<section class="tool" id="avg-color" data-title="Average color">
+<details open>
+  <summary><h2>Average color</h2><span class="desc">Average of every pixel, and of just the edge pixels.</span></summary>
+  <div class="body">
+    <div class="drop" tabindex="0">Drop, paste (Ctrl+V) or <u class="browse">browse for</u> an image<input type="file" accept="image/*" hidden class="file"></div>
+    <div class="pvwrap" hidden>
+      <div>
+        <div class="frame"><img alt="Preview of the uploaded image"><div class="edge"></div></div>
+        <div class="row">
+          <label>Edge thickness <input type="number" class="px" value="10" min="1" style="width:80px"> px</label>
+          <label><input type="checkbox" class="lin"> Average in linear light</label>
+        </div>
+        <p class="note">Green frame = what counts as "edge". Transparent pixels are weighted by their opacity. Linear light is closer to how mixing light really works; leave it off to match most image editors.</p>
+      </div>
+      <div class="cols" style="grid-template-columns:1fr">
+        <div class="card" data-k="all"><h3>All pixels</h3><div class="sw"></div><div class="vals"></div></div>
+        <div class="card" data-k="edge"><h3>Edge pixels</h3><div class="sw"></div><div class="vals"></div></div>
+      </div>
+    </div>
+  </div>
+</details>
+<script>
+(()=>{
+const root=document.currentScript.closest("section"),q=s=>root.querySelector(s);
+let im=null;
+const L=new Float32Array(256).map((_,i)=>{const c=i/255;return c<=.04045?c/12.92:((c+.055)/1.055)**2.4});
+const toS=v=>Math.round(255*(v<=.0031308?12.92*v:1.055*v**(1/2.4)-.055));
+function load(f){
+  if(!f||!f.type.startsWith("image/"))return toast("That isn't an image");
+  const url=URL.createObjectURL(f),i=new Image();
+  i.onload=()=>{im=i;q("img").src=url;q(".pvwrap").hidden=false;compute()};
+  i.src=url;
+}
+function hsl(r,g,b){r/=255;g/=255;b/=255;const M=Math.max(r,g,b),m=Math.min(r,g,b),l=(M+m)/2,d=M-m;let h=0,s=0;
+  if(d){s=d/(1-Math.abs(2*l-1));h=M===r?((g-b)/d)%6:M===g?(b-r)/d+2:(r-g)/d+4;h=(h*60+360)%360}
+  return `hsl(${Math.round(h)}, ${Math.round(s*100)}%, ${Math.round(l*100)}%)`}
+function show(k,v){
+  const c=q(`[data-k=${k}]`),vals=c.querySelector(".vals");
+  if(!v){vals.textContent="No opaque pixels";return}
+  const [r,g,b]=v,hex="#"+[r,g,b].map(n=>n.toString(16).padStart(2,"0")).join("").toUpperCase();
+  c.querySelector(".sw").style.background=hex;
+  vals.innerHTML="";
+  [hex,`rgb(${r}, ${g}, ${b})`,hsl(r,g,b)].forEach(t=>{const s=document.createElement("span");s.className="copy";s.textContent=t;s.title="Click to copy";vals.append(s)});
+}
+function overlay(){
+  const img=q("img");if(!im||!img.clientWidth)return;
+  q(".edge").style.borderWidth=Math.min(+q(".px").value||1,Math.min(im.naturalWidth,im.naturalHeight)/2)*img.clientWidth/im.naturalWidth+"px";
+}
+function compute(){
+  if(!im)return;
+  let w=im.naturalWidth,h=im.naturalHeight,sc=1;
+  if(w*h>2.5e7){sc=Math.sqrt(2.5e7/(w*h));w=Math.round(w*sc);h=Math.round(h*sc)}
+  const c=document.createElement("canvas");c.width=w;c.height=h;
+  const x=c.getContext("2d",{willReadFrequently:true});x.drawImage(im,0,0,w,h);
+  const d=x.getImageData(0,0,w,h).data,lin=q(".lin").checked;
+  const t=Math.max(1,Math.min(Math.round((+q(".px").value||1)*sc),w>>1,h>>1));
+  const A=[0,0,0,0],E=[0,0,0,0];
+  for(let y=0;y<h;y++){
+    const er=y<t||y>=h-t;
+    for(let xx=0;xx<w;xx++){
+      const i=(y*w+xx)*4,a=d[i+3];if(!a)continue;
+      const k=a/255,r=(lin?L[d[i]]:d[i])*k,g=(lin?L[d[i+1]]:d[i+1])*k,b=(lin?L[d[i+2]]:d[i+2])*k;
+      A[0]+=r;A[1]+=g;A[2]+=b;A[3]+=k;
+      if(er||xx<t||xx>=w-t){E[0]+=r;E[1]+=g;E[2]+=b;E[3]+=k}
+    }
+  }
+  const fin=S=>S[3]?[0,1,2].map(i=>lin?toS(S[i]/S[3]):Math.round(S[i]/S[3])):null;
+  show("all",fin(A));show("edge",fin(E));overlay();
+}
+const drop=q(".drop"),file=q(".file");
+q(".browse").onclick=()=>file.click();drop.onclick=e=>{if(e.target!==file&&e.target.tagName!=="U")file.click()};
+file.onchange=()=>load(file.files[0]);
+["dragenter","dragover"].forEach(n=>drop.addEventListener(n,e=>{e.preventDefault();drop.classList.add("over")}));
+["dragleave","drop"].forEach(n=>drop.addEventListener(n,e=>{e.preventDefault();drop.classList.remove("over")}));
+drop.addEventListener("drop",e=>load(e.dataTransfer.files[0]));
+addEventListener("paste",e=>{const f=[...(e.clipboardData?.files||[])].find(f=>f.type.startsWith("image/"));if(f)load(f)});
+q(".px").oninput=compute;q(".lin").onchange=compute;addEventListener("resize",overlay);
+})();
+</script>
+</section>
+
+<!-- ============ 2. FRAME TIME ============ -->
+<section class="tool" id="frame-time" data-title="FPS ↔ frame time">
+<details open>
+  <summary><h2>FPS ↔ frame time</h2><span class="desc">Milliseconds per frame, and back again.</span></summary>
+  <div class="body">
+    <div class="cols">
+      <div class="card"><h3>FPS → ms per frame</h3>
+        <label>FPS <input type="number" class="fps" value="60" min="0" step="any" style="width:110px"></label>
+        <div class="row"><span class="copy big f2ms"></span></div></div>
+      <div class="card"><h3>ms per frame → FPS</h3>
+        <label>ms <input type="number" class="ms" value="16.67" min="0" step="any" style="width:110px"></label>
+        <div class="row"><span class="copy big m2f"></span></div></div>
+      <div class="card"><h3>Frames ↔ time at <span class="fl">60</span> FPS</h3>
+        <div class="row" style="margin-top:0"><label>Frames <input type="number" class="fr" value="90" min="0" step="any" style="width:90px"></label>
+        <span class="copy fr2t"></span></div>
+        <div class="row"><label>Seconds <input type="number" class="sec" value="1.5" min="0" step="any" style="width:90px"></label>
+        <span class="copy t2fr"></span></div></div>
+    </div>
+    <h3 class="note" style="margin:18px 0 6px">Common rates (click a row to use it)</h3>
+    <div class="tw"><table class="presets"><thead><tr><th>FPS</th><th>ms per frame</th><th>Common use</th></tr></thead><tbody></tbody></table></div>
+  </div>
+</details>
+<script>
+(()=>{
+const root=document.currentScript.closest("section"),q=s=>root.querySelector(s);
+const n=(x,d=4)=>isFinite(x)?String(+x.toFixed(d)):"—";
+const P=[[24,"Film"],[25,"PAL video"],[30,"Web video, many console games"],[48,"HFR film"],[50,"PAL TV, 50 Hz displays"],[60,"Standard game target"],[72,"VR (some headsets)"],[90,"VR"],[120,"High refresh, consoles"],[144,"Gaming monitors"],[165,"Gaming monitors"],[240,"Esports monitors"]];
+function run(){
+  const f=+q(".fps").value;
+  q(".f2ms").textContent=n(1000/f)+" ms";
+  q(".m2f").textContent=n(1000/+q(".ms").value,3)+" FPS";
+  q(".fl").textContent=n(f,2);
+  q(".fr2t").textContent=n(+q(".fr").value/f*1000,2)+" ms  (" +n(+q(".fr").value/f,4)+" s)";
+  q(".t2fr").textContent=n(+q(".sec").value*f,3)+" frames";
+}
+const tb=q(".presets tbody");
+P.forEach(([f,u])=>{const r=tb.insertRow();r.style.cursor="pointer";r.innerHTML=`<td>${f}</td><td>${n(1000/f)}</td><td>${u}</td>`;r.onclick=()=>{q(".fps").value=f;q(".ms").value=n(1000/f,4);run()}});
+root.addEventListener("input",e=>{if(e.target.classList.contains("ms")){const v=+e.target.value;if(v>0)q(".fps").value=n(1000/v,3)}run()});
+run();
+})();
+</script>
+</section>
+
+<!-- ============ 3. TIMESTAMP MAKER ============ -->
+<section class="tool" id="timestamps" data-title="Tracklist timestamps">
+<details open>
+  <summary><h2>Tracklist timestamps</h2><span class="desc">Paste a track list with lengths, get YouTube-ready timestamps.</span></summary>
+  <div class="body">
+    <p class="note" style="margin-bottom:8px">Paste straight from KHInsider, Spotify, Apple Music, Bandcamp, a text file, whatever. Lengths like <code>3:45</code> are detected anywhere in a line.</p>
+    <textarea class="raw" rows="7" placeholder="Paste your tracklist here…" spellcheck="false"></textarea>
+    <div class="row"><button class="ex">Load example</button><button class="clr">Clear</button><span class="note info"></span></div>
+
+    <details style="margin-top:6px"><summary style="padding:6px 0;font-weight:600">Reading the paste <span class="desc">(only change if the result looks wrong)</span></summary>
+      <div class="row">
+        <label>Layout <select class="lyt"><option value="auto">Auto-detect</option><option value="line">One track per line</option><option value="multi">Several lines per track (Spotify-style)</option></select></label>
+        <label>Name column <select class="ncol"></select></label>
+        <label>Length column <select class="dcol"></select></label>
+        <label>Name from line(s) <input type="text" class="nl" value="1" style="width:70px" title="Multi-line layout: which lines make up the name, e.g. 1 or 1,2 for title + artist"></label>
+      </div>
+      <div class="row">
+        <label><input type="checkbox" class="sn" checked> Remove leading track numbers</label>
+        <label><input type="checkbox" class="se" checked> Remove .mp3/.flac etc.</label>
+      </div>
+      <p class="note">Columns apply when the paste is tab-separated (copied from a table). "Name from line(s)" applies to the multi-line layout, counting lines after bare numbers are dropped.</p>
+    </details>
+
+    <div class="warns" style="margin:10px 0"></div>
+    <div class="tw" hidden><table class="trk"><thead><tr><th></th><th>#</th><th style="width:100%">Name</th><th>Length</th><th>Starts</th><th></th></tr></thead><tbody></tbody></table></div>
+    <div class="row" hidden id="addrow"></div>
+
+    <h3 style="margin:18px 0 6px;font-size:15px">Output</h3>
+    <div class="row">
+      <label>Format <select class="fmt"><option value="0">0:00 Name</option><option value="1">0:00 - Name</option><option value="2">Name - 0:00</option><option value="3">Name (0:00)</option></select></label>
+      <label>Time style <select class="ts"><option value="auto">0:00 / 1:02:03</option><option value="hms">Always 0:00:00</option><option value="pad">Zero-padded 00:00</option></select></label>
+      <label><input type="checkbox" class="num"> Number the tracks</label>
+    </div>
+    <div class="row">
+      <label>First track starts at <input type="text" class="off" value="0:00" style="width:80px"></label>
+      <label>Gap between tracks <input type="number" class="gap" value="0" min="0" step="any" style="width:70px"> s</label>
+      <label>Video link (optional) <input type="text" class="url" placeholder="https://youtu.be/…" style="width:240px"></label>
+    </div>
+    <textarea class="out" rows="8" readonly spellcheck="false"></textarea>
+    <div class="row"><button class="p cpy">Copy timestamps</button><span class="note total"></span></div>
+    <p class="note">YouTube turns plain <code>0:00</code> text into clickable links in comments and descriptions. If you add a video link, each line gets a direct <code>?t=</code> link appended instead of relying on that.</p>
+  </div>
+</details>
+<script>
+(()=>{
+const root=document.currentScript.closest("section"),q=s=>root.querySelector(s);
+const T=/(?:\d{1,3}:)?\d{1,3}:\d{2}(?:\.\d+)?/,TE=new RegExp("^"+T.source+"$");
+const sec=s=>{s=s.trim();if(/^\d+(\.\d+)?$/.test(s))return+s;if(!TE.test(s))return NaN;return s.split(":").reduce((a,v)=>a*60+parseFloat(v),0)};
+const pad=n=>String(n).padStart(2,"0");
+function fmt(s,m){s=Math.round(s);const h=s/3600|0,mi=(s%3600)/60|0,ss=s%60;
+  if(m==="hms")return `${h}:${pad(mi)}:${pad(ss)}`;
+  if(m==="pad")return h?`${pad(h)}:${pad(mi)}:${pad(ss)}`:`${pad(mi)}:${pad(ss)}`;
+  return h?`${h}:${pad(mi)}:${pad(ss)}`:`${mi}:${pad(ss)}`}
+let tracks=[],info="";
+["ncol","dcol"].forEach((c,i)=>{const s=q("."+c);s.innerHTML='<option value="0">Auto</option>'+[1,2,3,4,5,6,7,8].map(n=>`<option value="${n}">Column ${n}</option>`).join("")});
+
+function clean(n){
+  n=n.replace(/\s+/g," ").trim();
+  if(q(".se").checked)n=n.replace(/\.(mp3|flac|wav|ogg|m4a|aac|opus)$/i,"");
+  if(q(".sn").checked)n=n.replace(/^\s*(?:disc\s*\d+\s*[-.]\s*)?\d{1,3}\s*(?:[.)\]:\-–—]\s*|\s+(?=\D))/i,"");
+  return n.replace(/(\[\s*\]|\(\s*\))/g,"").replace(/^[\s\-–—|:·•]+|[\s\-–—|:·•]+$/g,"").trim();
+}
+function parse(){
+  let lines=q(".raw").value.split(/\r?\n/).map(l=>l.trim()).filter(Boolean),out=[];
+  info="";lines=lines.filter(l=>T.test(l)||!/\t.*\b(mp3|flac|ogg|length|duration|time)\b/i.test(l));if(!lines.length)return out;
+  let lay=q(".lyt").value;
+  const withT=lines.filter(l=>T.test(l)).length;
+  if(lay==="auto")lay=withT/lines.length<=.5&&withT>0?"multi":"line";
+  const tabs=lines.filter(l=>l.includes("\t")).length/lines.length>=.6;
+  if(lay==="multi"){
+    const idx=q(".nl").value.split(/[,\s]+/).map(Number).filter(n=>n>0);let buf=[];
+    for(const l of lines){
+      const m=l.match(T);
+      if(m){const rest=l.replace(m[0],"").trim();if(rest)buf.push(rest);
+        const b=buf.filter(x=>!/^\d{1,3}[.)]?$/.test(x)&&!/^[\d.,]+\s*[KMG]?B$/i.test(x)&&!/^(e|explicit|lyrics)$/i.test(x));
+        const name=clean((idx.length?idx:[1]).map(i=>b[i-1]).filter(Boolean).join(" - "));
+        out.push({name,dur:sec(m[0]),on:true});buf=[];
+      }else buf.push(l);
+    }
+    info=`${out.length} tracks · multi-line layout`;return out;
+  }
+  if(tabs){
+    const rows=lines.map(l=>l.split("\t").map(c=>c.trim()));
+    const nc=Math.max(...rows.map(r=>r.length));
+    let dc=+q(".dcol").value-1;
+    if(dc<0){let best=-1,bs=0;for(let c=0;c<nc;c++){const s=rows.filter(r=>TE.test(r[c]||"")).length;if(s>bs){bs=s;best=c}}dc=best}
+    let nm=+q(".ncol").value-1;
+    if(nm<0){let best=-1,bs=0;for(let c=0;c<nc;c++){if(c===dc)continue;const v=rows.map(r=>(r[c]||"").replace(/[^A-Za-z\u00C0-\uFFFF]/g,"").length),a=v.reduce((x,y)=>x+y,0)/rows.length;if(a>bs){bs=a;best=c}}nm=best}
+    for(const r of rows){if(dc<0||!TE.test(r[dc]||""))continue;out.push({name:clean(r[nm]||""),dur:sec(r[dc]),on:true})}
+    info=`${out.length} tracks · tab-separated · name = column ${nm+1}, length = column ${dc+1}`;return out;
+  }
+  let skipped=0;
+  for(const l of lines){
+    const ms=l.match(new RegExp(T.source,"g"));
+    if(!ms||/^total\b/i.test(l)){skipped++;continue}
+    const m=ms[ms.length-1];
+    out.push({name:clean(l.replace(m,"")),dur:sec(m),on:true});
+  }
+  info=`${out.length} tracks · one per line`+(skipped?` · ${skipped} line(s) without a length skipped`:"");return out;
+}
+function vid(u){const m=u.match(/(?:youtu\.be\/|v=|\/shorts\/|\/live\/|\/embed\/)([\w-]{11})/);return m?m[1]:""}
+function render(){
+  const tb=q(".trk tbody");tb.innerHTML="";
+  tracks.forEach((t,i)=>{
+    const r=tb.insertRow();
+    r.innerHTML=`<td><input type="checkbox" ${t.on?"checked":""} title="Include"></td><td class="n"></td><td><input type="text"></td><td class="len"><input type="text"></td><td class="st"></td><td style="white-space:nowrap"><button class="mini up" title="Move up">↑</button> <button class="mini dn" title="Move down">↓</button> <button class="mini rm" title="Remove">✕</button></td>`;
+    r.children[2].firstChild.value=t.name;
+    r.children[3].firstChild.value=isFinite(t.dur)?fmt(t.dur,"auto"):"";
+  });
+  q(".tw").hidden=!tracks.length;
+  const ar=q("#addrow");ar.hidden=!tracks.length;
+  ar.innerHTML='<button class="add">+ Add row</button>';
+  update();
+}
+function update(){
+  const off=sec(q(".off").value)||0,gap=+q(".gap").value||0,mode=q(".ts").value,f=q(".fmt").value;
+  const rows=[...q(".trk tbody").rows],id=vid(q(".url").value),lines=[],warns=[];
+  let t=off,n=0,short=0,bad=0;
+  rows.forEach((r,i)=>{
+    const tr=tracks[i];r.classList.toggle("off",!tr.on);r.style.opacity=tr.on?1:.4;
+    r.children[1].textContent=tr.on?++n:"–";
+    if(!tr.on){r.children[4].textContent="";return}
+    if(!isFinite(tr.dur)){bad++;r.children[4].textContent="?";return}
+    r.children[4].textContent=fmt(t,"auto");
+    const ts=fmt(t,mode),nm=(q(".num").checked?n+". ":"")+(tr.name||"Untitled");
+    let line=[`${ts} ${nm}`,`${ts} - ${nm}`,`${nm} - ${ts}`,`${nm} (${ts})`][f];
+    if(id)line+=` https://youtu.be/${id}?t=${Math.round(t)}`;
+    lines.push(line);
+    if(tr.dur<10)short++;
+    t+=tr.dur+gap;
+  });
+  q(".out").value=lines.join("\n");
+  q(".total").textContent=lines.length?`${lines.length} tracks · ends at ${fmt(t-gap,"auto")}`:"";
+  if(lines.length){
+    if(off!==0)warns.push(`YouTube chapters need the first timestamp to be 0:00 (change “First track starts at” unless that’s intended).`);
+    if(lines.length<3)warns.push("YouTube chapters need at least 3 timestamps.");
+    if(short)warns.push(`${short} track(s) shorter than 10 s; YouTube chapters must be at least 10 s each.`);
+  }
+  if(bad)warns.push(`${bad} row(s) have an unreadable length. Fix them in the table (e.g. 3:45).`);
+  q(".warns").innerHTML=warns.map(w=>`<div class="warn">⚠ ${w}</div>`).join("");
+}
+function reparse(){tracks=parse();q(".info").textContent=info;render()}
+const tb=q(".trk tbody");
+tb.addEventListener("input",e=>{
+  const r=e.target.closest("tr"),i=r.rowIndex-1,tr=tracks[i],c=e.target.closest("td").cellIndex;
+  if(c===0)tr.on=e.target.checked;if(c===2)tr.name=e.target.value;if(c===3)tr.dur=sec(e.target.value);
+  update();
+});
+tb.addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  const i=b.closest("tr").rowIndex-1;
+  if(b.classList.contains("rm"))tracks.splice(i,1);
+  else{const j=b.classList.contains("up")?i-1:i+1;if(j<0||j>=tracks.length)return;[tracks[i],tracks[j]]=[tracks[j],tracks[i]]}
+  render();
+});
+q("#addrow").addEventListener("click",e=>{if(e.target.classList.contains("add")){tracks.push({name:"",dur:NaN,on:true});render()}});
+q(".raw").addEventListener("input",reparse);
+["lyt","ncol","dcol","nl","sn","se"].forEach(c=>q("."+c).addEventListener("input",reparse));
+["off","gap","ts","fmt","num","url"].forEach(c=>q("."+c).addEventListener("input",update));
+q(".cpy").onclick=()=>q(".out").value?copy(q(".out").value,"timestamps"):toast("Nothing to copy yet");
+q(".clr").onclick=()=>{q(".raw").value="";reparse()};
+q(".ex").onclick=()=>{q(".raw").value="1.\tSunrise Overture\t2:31\t4.9 MB\t18.2 MB\n2.\tCity Lights\t3:48\t7.1 MB\t26.0 MB\n3.\tQuiet Harbor\t1:55\t3.6 MB\t12.4 MB\n4.\tThe Long Way Home (Extended)\t5:20\t9.8 MB\t34.7 MB\n5.\tEncore\t0:48\t1.4 MB\t5.1 MB";reparse()};
+})();
+</script>
+</section>
+
+<!-- ============ 4. GIF ↔ MP4 ============ -->
+<section class="tool" id="converter" data-title="GIF ↔ MP4 converter">
+<details open>
+  <summary><h2>GIF ↔ MP4 converter</h2><span class="desc">Convert, trim, crop, resize and compress. Runs locally, no file size limit.</span></summary>
+  <div class="body">
+    <div class="drop">Drop a GIF, MP4/WebM or image, or <u style="color:var(--ac);cursor:pointer">browse</u><input type="file" accept="image/*,video/*" hidden></div>
+    <div class="work" hidden>
+      <div class="pvwrap">
+        <div>
+          <canvas class="pv" style="max-width:100%;border:1px solid var(--bd);border-radius:6px"></canvas>
+          <div class="note meta"></div>
+          <div class="row"><label>Preview frame <input type="range" class="seek" min="0" max="1000" value="0" style="width:200px"></label></div>
+        </div>
+        <div>
+          <div class="row" style="margin-top:0"><label>Output <select class="fmt"><option value="gif">GIF</option><option value="mp4">MP4 (video)</option></select></label>
+            <label>FPS <input type="number" class="fps" min="1" max="60" placeholder="auto" style="width:80px"></label>
+            <label>Width <input type="number" class="wd" min="16" placeholder="original" style="width:90px"> px</label></div>
+          <h3 class="sec">Crop (pixels removed from each side)</h3>
+          <div class="row"><label>Left <input type="number" class="c-l" value="0" min="0" style="width:70px"></label><label>Top <input type="number" class="c-t" value="0" min="0" style="width:70px"></label><label>Right <input type="number" class="c-r" value="0" min="0" style="width:70px"></label><label>Bottom <input type="number" class="c-b" value="0" min="0" style="width:70px"></label></div>
+          <h3 class="sec">Trim (seconds)</h3>
+          <div class="row"><label>Start <input type="number" class="t0" value="0" min="0" step="any" style="width:80px"></label><label>End <input type="number" class="t1" min="0" step="any" placeholder="end" style="width:80px"></label></div>
+          <h3 class="sec">Compression</h3>
+          <div class="row"><label>GIF colors <select class="gcol"><option value="256">256 (best)</option><option value="128">128</option><option value="64">64</option><option value="32">32</option><option value="16">16 (smallest)</option></select></label>
+            <label>MP4 quality <select class="q"><option value=".25">High</option><option value=".12" selected>Medium</option><option value=".06">Small</option><option value=".03">Tiny</option></select></label></div>
+          <p class="note">Lower FPS, smaller width and fewer colors all shrink GIFs. MP4 is recorded in real time (a 10 s clip takes about 10 s) and has no audio. GIF decoding needs Chrome, Edge or a recent Safari.</p>
+          <div class="row"><button class="p go">Convert</button><button class="stop" hidden>Cancel</button><button class="send" title="Open this file in the caption tool">Add captions / text →</button></div>
+          <progress class="prog" value="0" max="1" hidden></progress><div class="note stat"></div>
+        </div>
+      </div>
+      <div class="res" hidden></div>
+    </div>
+  </div>
+</details>
+<script>
+(()=>{
+const root=document.currentScript.closest("section"),q=s=>root.querySelector(s);
+let src=null,file=null,ctl=null,url=null,busy=false,again=false;
+const num=(s,d)=>{const v=parseFloat(q(s).value);return isFinite(v)?v:d};
+async function load(f){
+  try{src=await QT.open(f);file=f}catch(e){return toast(e.message)}
+  q(".work").hidden=false;
+  q(".meta").textContent=`${f.name} · ${src.w}×${src.h} · ${src.kind.toUpperCase()}${src.dur?` · ${src.dur.toFixed(2)} s`:""} · ${QT.kb(f.size)}${src.warn?" · "+src.warn:""}`;
+  ["l","t","r","b"].forEach(k=>q(".c-"+k).value=0);q(".t0").value=0;q(".t1").value="";q(".wd").value="";q(".fps").value="";
+  q(".fmt").value=src.kind==="video"?"gif":"mp4";q(".res").hidden=true;preview();
+}
+const crop=()=>{const l=Math.max(0,num(".c-l",0)),t=Math.max(0,num(".c-t",0)),r=Math.max(0,num(".c-r",0)),b=Math.max(0,num(".c-b",0));return{l,t,cw:Math.max(2,src.w-l-r),ch:Math.max(2,src.h-t-b)}};
+function size(){const c=crop();let W=Math.max(2,Math.round(num(".wd",0)||c.cw))&~1;const H=Math.max(2,Math.round(W*c.ch/c.cw))&~1;return{W,H}}
+async function preview(){
+  if(!src)return;if(busy){again=true;return}busy=true;
+  try{
+    const d=await src.frameAt(src.dur?q(".seek").value/1000*src.dur:0),pc=q(".pv"),k=Math.min(1,560/src.w);
+    pc.width=Math.round(src.w*k);pc.height=Math.round(src.h*k);
+    const x=pc.getContext("2d");QT.draw(x,d,0,0,pc.width,pc.height);
+    const c=crop(),L=c.l*k,T=c.t*k,Wd=c.cw*k,Hd=c.ch*k;x.fillStyle="rgba(0,0,0,.55)";
+    x.fillRect(0,0,pc.width,T);x.fillRect(0,T+Hd,pc.width,pc.height-T-Hd);x.fillRect(0,T,L,Hd);x.fillRect(L+Wd,T,pc.width-L-Wd,Hd);
+  }catch(e){}
+  busy=false;if(again){again=false;preview()}
+}
+q(".go").onclick=async()=>{
+  if(!src)return;
+  const fmt=q(".fmt").value,c=crop(),S=size(),fps=num(".fps",0)||(src.kind==="video"?(fmt==="gif"?15:30):0);
+  const t0=Math.max(0,num(".t0",0)),t1=Math.min(src.dur,num(".t1",0)||src.dur);
+  ctl={stop:false};q(".go").hidden=true;q(".stop").hidden=false;q(".prog").hidden=false;q(".stat").textContent="Working…";
+  try{
+    const out=await QT.render(src,{W:S.W,H:S.H,fmt,fps,t0,t1,colors:+q(".gcol").value,bpp:+q(".q").value,ctl,
+      progress:p=>q(".prog").value=p,paint:(ctx,img)=>QT.draw(ctx,img,c.l,c.t,c.cw,c.ch,0,0,S.W,S.H)});
+    if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(out.blob);
+    const base=file.name.replace(/\.[^.]+$/,"")+"-converted",pct=Math.round(out.blob.size/file.size*100);
+    q(".res").innerHTML=(out.ext==="gif"?`<img src="${url}" alt="Result">`:`<video src="${url}" controls loop autoplay muted playsinline></video>`)+
+      `<div class="row"><a download="${base}.${out.ext}" href="${url}"><button class="p">Download .${out.ext}</button></a><span class="note">${QT.kb(file.size)} → ${QT.kb(out.blob.size)} (${pct}%) · ${S.W}×${S.H}${out.ext==="webm"&&fmt==="mp4"?" · this browser can't record MP4, so it saved WebM":""}</span></div>`;
+    q(".res").hidden=false;q(".stat").textContent="Done.";
+  }catch(e){q(".stat").textContent=e.message==="Cancelled"?"Cancelled.":"Failed: "+e.message}
+  q(".go").hidden=false;q(".stop").hidden=true;q(".prog").hidden=true;
+};
+q(".stop").onclick=()=>ctl&&(ctl.stop=true);
+q(".send").onclick=()=>file&&QT.sendToMeme?QT.sendToMeme(file):toast("Load a file first");
+root.addEventListener("input",e=>{if(e.target.matches(".c-l,.c-t,.c-r,.c-b,.seek"))preview()});
+QT.drop(q(".drop"),load,false);
+})();
+</script>
+</section>
+
+<!-- ============ 5. CAPTIONS & TEXT ============ -->
+<section class="tool" id="captions" data-title="Meme captions &amp; text overlay">
+<details open>
+  <summary><h2>Meme captions &amp; text overlay</h2><span class="desc">Caption bar above or below, plus draggable text and emoji, on a GIF, video or image.</span></summary>
+  <div class="body">
+    <div class="drop">Drop a GIF, image or video, or <u style="color:var(--ac);cursor:pointer">browse</u><input type="file" accept="image/*,video/*" hidden></div>
+    <div class="work" hidden>
+      <div class="pvwrap" style="grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)">
+        <div>
+          <canvas class="cv" style="max-width:100%;border:1px solid var(--bd);border-radius:6px;touch-action:none;cursor:move"></canvas>
+          <div class="row"><label>Frame <input type="range" class="seek" min="0" max="1000" value="0" style="width:180px"></label><span class="note meta"></span></div>
+          <p class="note">Click text on the image to select it, drag to move, drag the green square to resize.</p>
+        </div>
+        <div>
+          <h3 class="sec" style="margin-top:0">Caption bar</h3>
+          <div class="row"><label><input type="checkbox" class="cap-on" checked> Show</label>
+            <label>Position <select class="cap-pos"><option value="top">Above</option><option value="bottom">Below</option></select></label>
+            <label><input type="checkbox" class="cap-up" checked> CAPS</label></div>
+          <div class="row"><textarea class="cap-text txt" rows="2" placeholder="Caption text" style="flex:1;min-width:180px"></textarea><button class="emo" title="Emoji">😀</button></div>
+          <div class="row"><label>Font <select class="cap-font fonts"></select></label>
+            <label>Size <input type="range" class="cap-size" min="3" max="16" step=".5" value="8" style="width:90px"></label>
+            <label>Text <input type="color" class="cap-fg" value="#000000"></label><label>Box <input type="color" class="cap-bg" value="#ffffff"></label></div>
+          <h3 class="sec">Text layers</h3>
+          <div class="layers"></div>
+          <div class="row"><button class="add">+ Add text</button></div>
+          <div class="det" hidden>
+            <div class="row"><label>Font <select class="l-font fonts"></select></label><label>Size <input type="range" class="l-size" min="2" max="30" step=".5" style="width:100px"></label>
+              <label>Color <input type="color" class="l-col"></label><label><input type="checkbox" class="l-out"> Outline</label></div>
+          </div>
+          <h3 class="sec">Export</h3>
+          <div class="row"><label>Max width <input type="number" class="mw" value="480" min="64" style="width:80px"> px</label>
+            <label>FPS <input type="number" class="fps" min="1" max="50" placeholder="auto" style="width:70px"></label>
+            <label>GIF colors <select class="gcol"><option value="256">256</option><option value="128">128</option><option value="64">64</option><option value="32">32</option></select></label></div>
+          <div class="row"><button class="p ex-png">PNG (this frame)</button><button class="ex-gif">GIF</button><button class="ex-mp4">MP4</button><button class="stop" hidden>Cancel</button></div>
+          <progress class="prog" value="0" max="1" hidden></progress><div class="note stat"></div>
+        </div>
+      </div>
+    </div>
+    <div class="emoji" hidden></div>
+  </div>
+</details>
+<script>
+(()=>{
+const root=document.currentScript.closest("section"),q=s=>root.querySelector(s);
+const FONTS=[["Impact (meme)","400","Impact,'Arial Narrow Bold',sans-serif"],["Futura-style bold","700","Futura,'Century Gothic','Trebuchet MS',sans-serif"],["Arial Black","400","'Arial Black',Arial,sans-serif"],["Arial","400","Arial,Helvetica,sans-serif"],["Arial bold","700","Arial,Helvetica,sans-serif"],["Comic","700","'Comic Sans MS','Comic Neue',cursive"],["Georgia","400","Georgia,serif"],["Courier","700","'Courier New',monospace"]];
+root.querySelectorAll(".fonts").forEach(s=>FONTS.forEach((f,i)=>s.add(new Option(f[0],i))));
+q(".l-font").value=3;
+let src=null,file=null,base=document.createElement("canvas"),layers=[],sel=-1,drag=null,ctl=null,pickFor=null;
+const cv=q(".cv"),num=(s,d)=>{const v=parseFloat(q(s).value);return isFinite(v)?v:d},sc=document.createElement("canvas").getContext("2d");
+const lf=(L,W)=>`${FONTS[L.f][1]} ${Math.round(L.size*W)}px ${FONTS[L.f][2]}`;
+function wrap(ctx,text,max){const out=[];let cur="";for(const w of text.split(/\s+/)){const t=cur?cur+" "+w:w;if(ctx.measureText(t).width>max&&cur){out.push(cur);cur=w}else cur=t}if(cur)out.push(cur);return out}
+function geom(){
+  const W=Math.max(16,Math.round(Math.min(src.w,num(".mw",0)||src.w))),bh=Math.round(src.h*W/src.w),f=FONTS[+q(".cap-font").value],size=Math.round(W*q(".cap-size").value/100);
+  let t=q(".cap-text").value.trim(),lines=[],capH=0;
+  if(q(".cap-on").checked&&t){sc.font=`${f[1]} ${size}px ${f[2]}`;if(q(".cap-up").checked)t=t.toUpperCase();lines=t.split("\n").flatMap(l=>wrap(sc,l,W*.94));capH=Math.round(lines.length*size*1.15+size*.6)}
+  return{W,bh,capH,H:bh+capH,lines,size,f,top:q(".cap-pos").value==="top"};
+}
+function bounds(L,W,H){sc.font=lf(L,W);const w=sc.measureText(L.text||" ").width,h=L.size*W*1.2;return{x:L.x*W-w/2,y:L.y*H-h/2,w,h}}
+function paint(ctx,img,g,ui){
+  const{W,H,bh,capH,top}=g;
+  ctx.fillStyle="#fff";ctx.fillRect(0,0,W,H);
+  if(capH){const by=top?0:bh;ctx.fillStyle=q(".cap-bg").value;ctx.fillRect(0,by,W,capH);
+    ctx.font=`${g.f[1]} ${g.size}px ${g.f[2]}`;ctx.fillStyle=q(".cap-fg").value;ctx.textAlign="center";ctx.textBaseline="middle";
+    g.lines.forEach((l,i)=>ctx.fillText(l,W/2,by+g.size*.3+(i+.5)*g.size*1.15))}
+  QT.draw(ctx,img,0,top?capH:0,W,bh);
+  layers.forEach((L,i)=>{
+    ctx.font=lf(L,W);ctx.textAlign="center";ctx.textBaseline="middle";
+    if(L.out){ctx.lineJoin="round";ctx.lineWidth=Math.max(2,L.size*W*.14);ctx.strokeStyle=lum(L.color)>.5?"#000":"#fff";ctx.strokeText(L.text,L.x*W,L.y*H)}
+    ctx.fillStyle=L.color;ctx.fillText(L.text,L.x*W,L.y*H);
+    if(ui&&i===sel){const b=bounds(L,W,H);ctx.save();ctx.setLineDash([6,4]);ctx.strokeStyle="#22c55e";ctx.lineWidth=2;ctx.strokeRect(b.x,b.y,b.w,b.h);ctx.fillStyle="#22c55e";ctx.fillRect(b.x+b.w-6,b.y+b.h-6,12,12);ctx.restore()}
+  });
+}
+const lum=h=>{const n=parseInt(h.slice(1),16);return(.299*(n>>16)+.587*(n>>8&255)+.114*(n&255))/255};
+function redraw(){if(!src)return;const g=geom();cv.width=g.W;cv.height=g.H;paint(cv.getContext("2d"),base,g,true)}
+async function refresh(){
+  const g=geom();base.width=g.W;base.height=g.bh;
+  const d=await src.frameAt(src.dur?q(".seek").value/1000*src.dur:0);QT.draw(base.getContext("2d"),d,0,0,g.W,g.bh);redraw();
+}
+async function load(f){
+  try{src=await QT.open(f);file=f}catch(e){return toast(e.message)}
+  q(".work").hidden=false;q(".meta").textContent=`${src.w}×${src.h} · ${src.kind}${src.warn?" · "+src.warn:""}`;
+  q(".ex-gif").disabled=q(".ex-mp4").disabled=src.kind==="image";q(".seek").value=0;await refresh();
+}
+function layerUI(){
+  const box=q(".layers");box.innerHTML="";
+  layers.forEach((L,i)=>{
+    const r=document.createElement("div");r.className="lay"+(i===sel?" on":"");
+    r.innerHTML='<input type="text" class="txt"><button class="emo" title="Emoji">😀</button><button class="rm" title="Remove">✕</button>';
+    const inp=r.firstChild;inp.value=L.text;
+    inp.oninput=()=>{L.text=inp.value;redraw()};inp.onfocus=()=>pick(i);
+    r.querySelector(".rm").onclick=()=>{layers.splice(i,1);sel=-1;layerUI();redraw()};
+    r.onclick=e=>{if(e.target.tagName!=="INPUT"&&e.target.tagName!=="BUTTON")pick(i)};
+    box.append(r);
+  });
+  syncDet();
+}
+function syncDet(){
+  const L=layers[sel];q(".det").hidden=!L;
+  if(L){q(".l-font").value=L.f;q(".l-size").value=L.size*100;q(".l-col").value=L.color;q(".l-out").checked=L.out}
+}
+function pick(i){
+  if(sel===i)return;sel=i;
+  [...q(".layers").children].forEach((r,k)=>r.classList.toggle("on",k===i));
+  syncDet();redraw();
+}
+q(".add").onclick=()=>{layers.push({text:"Your text",x:.5,y:.5,size:.1,color:"#ffffff",f:3,out:true});sel=layers.length-1;layerUI();redraw()};
+q(".det").addEventListener("input",()=>{const L=layers[sel];if(!L)return;L.f=+q(".l-font").value;L.size=q(".l-size").value/100;L.color=q(".l-col").value;L.out=q(".l-out").checked;redraw()});
+root.querySelector(".pvwrap").addEventListener("input",e=>{if(e.target.matches(".seek"))refresh();else if(e.target.matches(".cap-on,.cap-pos,.cap-up,.cap-text,.cap-font,.cap-size,.cap-fg,.cap-bg"))redraw()});
+q(".mw").oninput=()=>src&&refresh();
+/* drag / resize on canvas */
+const pos=e=>{const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*cv.width/r.width,(e.clientY-r.top)*cv.height/r.height]};
+cv.onpointerdown=e=>{
+  const[px,py]=pos(e),W=cv.width,H=cv.height;let hit=-1,mode="move";
+  if(sel>=0){const b=bounds(layers[sel],W,H);if(Math.abs(px-b.x-b.w)<16&&Math.abs(py-b.y-b.h)<16){hit=sel;mode="size"}}
+  if(hit<0)for(let i=layers.length-1;i>=0;i--){const b=bounds(layers[i],W,H);if(px>=b.x&&px<=b.x+b.w&&py>=b.y&&py<=b.y+b.h){hit=i;break}}
+  pick(hit);
+  if(hit<0)return;
+  drag={mode,px,py,L:{...layers[hit]},w:bounds(layers[hit],W,H).w};cv.setPointerCapture(e.pointerId);
+};
+cv.onpointermove=e=>{
+  if(!drag)return;const[px,py]=pos(e),L=layers[sel];
+  if(drag.mode==="move"){L.x=drag.L.x+(px-drag.px)/cv.width;L.y=drag.L.y+(py-drag.py)/cv.height}
+  else L.size=Math.min(.4,Math.max(.015,drag.L.size*(drag.w+2*(px-drag.px))/drag.w));
+  q(".l-size").value=L.size*100;redraw();
+};
+cv.onpointerup=()=>drag=null;
+/* emoji picker */
+const EM="😀 😁 😂 🤣 😊 😍 😘 😎 🤔 😐 😑 🙄 😬 😴 😭 😡 🥺 😱 🤯 😳 🥳 🤡 💀 👻 👽 🤖 💩 🙈 🙉 🙊 👍 👎 👌 🤞 🤝 👏 🙌 🙏 💪 👀 🧠 🫡 🫠 ❤️ 🧡 💛 💚 💙 💜 🖤 💔 ✨ 🔥 💯 ⭐ ⚡ 💥 🎉 🎮 🕹️ 👾 🚀 🌈 ☀️ 🌙 ☁️ ❄️ 🍕 🍔 🍟 🌮 🍩 🍪 🍺 ☕ 🐶 🐱 🐸 🐵 🦆 🐧 🦄 🐢 🦖 ✅ ❌ ❓ ❗ ➡️ ⬅️ ⬆️ ⬇️ 💡 🎵 📌 🔒 💸 🏆".split(" ");
+const ep=q(".emoji");EM.forEach(e=>{const b=document.createElement("button");b.textContent=e;ep.append(b)});
+root.addEventListener("click",e=>{
+  const b=e.target.closest("button.emo");
+  if(b){pickFor=b.parentElement.querySelector("input.txt,textarea.txt");const r=b.getBoundingClientRect(),p=root.querySelector(".body").getBoundingClientRect();
+    ep.style.top=r.bottom-p.top+4+"px";ep.style.left=Math.max(0,Math.min(r.left-p.left,p.width-320))+"px";ep.hidden=!ep.hidden;return}
+  if(e.target.closest(".emoji")&&e.target.tagName==="BUTTON"&&pickFor){
+    const t=pickFor,a=t.selectionStart??t.value.length,z=t.selectionEnd??a;t.value=t.value.slice(0,a)+e.target.textContent+t.value.slice(z);
+    t.focus();t.selectionStart=t.selectionEnd=a+e.target.textContent.length;t.dispatchEvent(new Event("input",{bubbles:true}));return}
+  if(!e.target.closest(".emoji"))ep.hidden=true;
+});
+/* export */
+function save(blob,ext){QT.save(blob,file.name.replace(/\.[^.]+$/,"")+"-caption."+ext)}
+q(".ex-png").onclick=()=>{
+  const g=geom(),c=document.createElement("canvas");c.width=g.W;c.height=g.H;paint(c.getContext("2d"),base,g,false);c.toBlob(b=>save(b,"png"))};
+async function anim(fmt){
+  const g=geom(),fps=num(".fps",0)||(src.kind==="video"?(fmt==="gif"?15:30):0);
+  ctl={stop:false};q(".stop").hidden=false;q(".prog").hidden=false;q(".stat").textContent="Working…";
+  try{const o=await QT.render(src,{W:g.W,H:g.H,fmt,fps,colors:+q(".gcol").value,ctl,progress:p=>q(".prog").value=p,paint:(ctx,img)=>paint(ctx,img,g,false)});
+    save(o.blob,o.ext);q(".stat").textContent=`Done · ${QT.kb(o.blob.size)}`}
+  catch(e){q(".stat").textContent=e.message==="Cancelled"?"Cancelled.":"Failed: "+e.message}
+  q(".stop").hidden=true;q(".prog").hidden=true;
+}
+q(".ex-gif").onclick=()=>anim("gif");q(".ex-mp4").onclick=()=>anim("mp4");q(".stop").onclick=()=>ctl&&(ctl.stop=true);
+QT.drop(q(".drop"),load,false);
+QT.sendToMeme=async f=>{await load(f);root.querySelector("details").open=true;root.scrollIntoView({behavior:"smooth"})};
+})();
+</script>
+</section>
+
+<!-- ============ 6. PIXEL ART ============ -->
+<section class="tool" id="pixel-art" data-title="Pixel art maker">
+<details open>
+  <summary><h2>Pixel art maker</h2><span class="desc">Turn an image into pixel art at any canvas size. Click a pixel to copy its hex.</span></summary>
+  <div class="body">
+    <div class="drop">Drop or <u style="color:var(--ac);cursor:pointer">browse for</u> an image<input type="file" accept="image/*" hidden></div>
+    <div class="work" hidden>
+      <div class="row"><label>Canvas <input type="number" class="w" value="64" min="1" max="512" style="width:70px"> ×
+        <input type="number" class="h" value="64" min="1" max="512" style="width:70px"> px</label>
+        <label>Fit <select class="fit"><option value="fill">Fill (crop edges)</option><option value="contain">Fit (keep all)</option><option value="stretch">Stretch</option></select></label>
+        <label>Colors <select class="nc"><option value="0">All</option><option value="2">2</option><option value="4">4</option><option value="8">8</option><option value="16" selected>16</option><option value="32">32</option><option value="64">64</option></select></label>
+        <label><input type="checkbox" class="grid"> Grid</label></div>
+      <div class="pvwrap" style="grid-template-columns:auto 1fr;align-items:start">
+        <div class="pxwrap"><canvas class="cv"></canvas><div class="pxgrid"></div><div class="pxsel" hidden></div></div>
+        <div>
+          <div class="row" style="margin-top:0"><span class="note info">Hover a pixel</span></div>
+          <div class="row"><span class="note">Last copied:</span><span class="copy lastc">—</span></div>
+          <h3 class="sec">Export</h3>
+          <div class="row"><button class="p ex1">PNG (1×)</button><label>Larger <select class="sc"><option>2</option><option>4</option><option selected>8</option><option>16</option><option>32</option><option>64</option></select>×</label><button class="exn">Export larger</button></div>
+          <h3 class="sec">Palette (click to copy)</h3><div class="sws"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</details>
+<script>
+(()=>{
+const root=document.currentScript.closest("section"),q=s=>root.querySelector(s);
+let img=null,file=null,id=null,W=64,H=64,zoom=8,last=null;
+const cv=q(".cv"),wrap=q(".pxwrap"),selEl=q(".pxsel");
+const hex=(d,i)=>d[i+3]<128?null:"#"+[0,1,2].map(k=>d[i+k].toString(16).padStart(2,"0")).join("").toUpperCase();
+async function load(f){file=f;img=await createImageBitmap(f);q(".work").hidden=false;process()}
+function process(){
+  if(!img)return;
+  W=Math.min(512,Math.max(1,+q(".w").value||64));H=Math.min(512,Math.max(1,+q(".h").value||64));
+  const iw=img.width,ih=img.height,m=q(".fit").value;let sx=0,sy=0,sw=iw,sh=ih,dx=0,dy=0,dw=W,dh=H;
+  if(m==="fill"){const s=Math.max(W/iw,H/ih);sw=W/s;sh=H/s;sx=(iw-sw)/2;sy=(ih-sh)/2}
+  else if(m==="contain"){const s=Math.min(W/iw,H/ih);dw=Math.max(1,Math.round(iw*s));dh=Math.max(1,Math.round(ih*s));dx=Math.floor((W-dw)/2);dy=Math.floor((H-dh)/2)}
+  let cur=img,cx=sx,cy=sy,cw=sw,ch=sh;
+  while(cw>=dw*2&&ch>=dh*2){const nw=Math.max(dw,Math.floor(cw/2)),nh=Math.max(dh,Math.floor(ch/2)),c=document.createElement("canvas");c.width=nw;c.height=nh;const x=c.getContext("2d");x.imageSmoothingQuality="high";x.drawImage(cur,cx,cy,cw,ch,0,0,nw,nh);cur=c;cx=cy=0;cw=nw;ch=nh}
+  const t=document.createElement("canvas");t.width=W;t.height=H;const tx=t.getContext("2d",{willReadFrequently:true});tx.imageSmoothingQuality="high";
+  tx.drawImage(cur,cx,cy,cw,ch,dx,dy,dw,dh);
+  id=tx.getImageData(0,0,W,H);const d=id.data,n=+q(".nc").value;
+  if(n>0){const pal=QT.palette(d,n),idx=QT.quantize(d,pal,0);
+    for(let i=0;i<W*H;i++){if(d[i*4+3]<128)d[i*4+3]=0;else{const c=pal[idx[i]];d[i*4]=c[0];d[i*4+1]=c[1];d[i*4+2]=c[2];d[i*4+3]=255}}}
+  cv.width=W;cv.height=H;cv.getContext("2d").putImageData(id,0,0);
+  zoom=Math.max(1,Math.floor(Math.min(560/W,520/H)));cv.style.width=W*zoom+"px";cv.style.height=H*zoom+"px";
+  const g=q(".pxgrid");g.style.cssText=q(".grid").checked&&zoom>=5?`background:linear-gradient(to right,#0004 1px,transparent 1px),linear-gradient(#0004 1px,transparent 1px);background-size:${zoom}px ${zoom}px`:"";
+  const seen=new Map();for(let i=0;i<W*H;i++){const h=hex(d,i*4);if(h)seen.set(h,(seen.get(h)||0)+1)}
+  const sw2=q(".sws");sw2.innerHTML="";[...seen].sort((a,b)=>b[1]-a[1]).slice(0,96).forEach(([h])=>{const b=document.createElement("button");b.style.background=h;b.title=h;b.onclick=()=>{copy(h);q(".lastc").textContent=h};sw2.append(b)});
+  if(seen.size>96){const s=document.createElement("span");s.className="note";s.textContent=`+${seen.size-96} more`;sw2.append(s)}
+  placeSel();
+}
+function placeSel(){selEl.hidden=!last||last[0]>=W||last[1]>=H;if(!selEl.hidden){selEl.style.cssText=`left:${last[0]*zoom}px;top:${last[1]*zoom}px;width:${zoom}px;height:${zoom}px`}}
+const at=e=>{const r=cv.getBoundingClientRect(),x=Math.floor((e.clientX-r.left)/r.width*W),y=Math.floor((e.clientY-r.top)/r.height*H);return x>=0&&y>=0&&x<W&&y<H?[x,y]:null};
+wrap.onmousemove=e=>{const p=at(e);if(!p||!id)return;const h=hex(id.data,(p[1]*W+p[0])*4);q(".info").textContent=`(${p[0]}, ${p[1]}) ${h||"transparent"}`};
+wrap.onclick=e=>{const p=at(e);if(!p||!id)return;const h=hex(id.data,(p[1]*W+p[0])*4);last=p;placeSel();
+  if(!h)return toast("Transparent pixel");copy(h);q(".lastc").textContent=h};
+root.addEventListener("input",e=>{if(e.target.matches(".w,.h,.fit,.nc,.grid"))process()});
+q(".ex1").onclick=()=>cv.toBlob(b=>QT.save(b,"pixel-art-"+W+"x"+H+".png"));
+q(".exn").onclick=()=>{
+  const s=Math.min(+q(".sc").value,Math.floor(8192/Math.max(W,H))),c=document.createElement("canvas");c.width=W*s;c.height=H*s;
+  const x=c.getContext("2d");x.imageSmoothingEnabled=false;x.drawImage(cv,0,0,c.width,c.height);c.toBlob(b=>QT.save(b,`pixel-art-${c.width}x${c.height}.png`));
+};
+QT.drop(q(".drop"),load,false);
+})();
+</script>
+</section>
+
+<!-- ============ 7. CALCULATOR ============ -->
+<section class="tool" id="calculator" data-title="Scientific calculator">
+<details open>
+  <summary><h2>Scientific calculator</h2><span class="desc">TI-style expressions, variables, history, plus solver templates.</span></summary>
+  <div class="body">
+    <div class="cols" style="grid-template-columns:minmax(300px,430px) 1fr;align-items:start">
+      <div class="calc">
+        <div class="hist"></div>
+        <input type="text" class="ln" placeholder="Type or tap, e.g. 2(3+4)^2 / sqrt(16)" autocomplete="off" spellcheck="false">
+        <div class="live"></div>
+        <div class="keys"></div>
+        <p class="note">Understands <code>x=5</code> variables, <code>Ans</code>, <code>2π</code>, <code>5!</code>, <code>%</code> (remainder), <code>nCr(5,2)</code>. ↑/↓ recalls earlier lines. Click a result to copy it.</p>
+      </div>
+      <div class="card">
+        <h3>Templates</h3>
+        <select class="tsel" style="width:100%;margin-bottom:10px"></select>
+        <div class="tf row"></div><div class="tr"></div>
+      </div>
+    </div>
+  </div>
+</details>
+<script>
+(()=>{
+const root=document.currentScript.closest("section"),q=s=>root.querySelector(s);
+let angle="deg",ans=0,vars={},hist=[],hi=0;
+const fact=n=>{if(n<0||n!==Math.floor(n))throw new Error("Factorial needs a whole number ≥ 0");if(n>170)return Infinity;let r=1;for(let i=2;i<=n;i++)r*=i;return r};
+const rad=x=>angle==="deg"?x*Math.PI/180:x,back=x=>angle==="deg"?x*180/Math.PI:x;
+const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b)[a,b]=[b,a%b];return a};
+const F={sin:x=>Math.sin(rad(x)),cos:x=>Math.cos(rad(x)),tan:x=>Math.tan(rad(x)),asin:x=>back(Math.asin(x)),acos:x=>back(Math.acos(x)),atan:x=>back(Math.atan(x)),atan2:(y,x)=>back(Math.atan2(y,x)),
+  sinh:Math.sinh,cosh:Math.cosh,tanh:Math.tanh,sqrt:x=>{if(x<0)throw new Error("Math error: √ of a negative");return Math.sqrt(x)},cbrt:Math.cbrt,abs:Math.abs,ln:Math.log,log:Math.log10,log2:Math.log2,exp:Math.exp,
+  floor:Math.floor,ceil:Math.ceil,round:Math.round,sign:Math.sign,fact,nCr:(n,r)=>Math.round(fact(n)/(fact(r)*fact(n-r))),nPr:(n,r)=>Math.round(fact(n)/fact(n-r)),
+  gcd,lcm:(a,b)=>Math.abs(a*b)/gcd(a,b),min:Math.min,max:Math.max,root:(x,n)=>Math.pow(x,1/n),pow:Math.pow,rand:Math.random,mod:(a,b)=>((a%b)+b)%b};
+const C={pi:()=>Math.PI,e:()=>Math.E,tau:()=>2*Math.PI,phi:()=>(1+Math.sqrt(5))/2,ans:()=>ans};
+function evaluate(src){
+  const s=src.replace(/×/g,"*").replace(/÷/g,"/").replace(/[−–]/g,"-").replace(/\*\*/g,"^").replace(/π/g,"pi").replace(/√/g,"sqrt ").replace(/²/g,"^2").replace(/³/g,"^3");
+  const T=s.match(/\d*\.?\d+(?:e[+-]?\d+)?|\d+\.|[A-Za-z_]\w*|\S/g)||[];let p=0;
+  const peek=()=>T[p],next=()=>T[p++],isNum=t=>/^[\d.]/.test(t||""),isId=t=>/^[A-Za-z_]/.test(t||"");
+  const expr=()=>{let v=term();while(peek()==="+"||peek()==="-"){const o=next(),r=term();v=o==="+"?v+r:v-r}return v};
+  const term=()=>{let v=unary();for(;;){const t=peek();
+    if(t==="*"){next();v*=unary()}
+    else if(t==="/"){next();const d=unary();if(d===0)throw new Error("Divide by zero");v/=d}
+    else if(t==="%"){next();const d=unary();if(d===0)throw new Error("Divide by zero");v%=d}
+    else if(t==="mod"){next();v=F.mod(v,unary())}
+    else if(t&&(isNum(t)||(isId(t))||t==="("))v*=power();
+    else break}return v};
+  const unary=()=>{if(peek()==="-"){next();return-unary()}if(peek()==="+"){next();return unary()}return power()};
+  const power=()=>{const b=post();if(peek()==="^"){next();return Math.pow(b,unary())}return b};
+  const post=()=>{let v=prim();while(peek()==="!"){next();v=fact(v)}return v};
+  const prim=()=>{
+    const t=next();if(t===undefined)throw new Error("Unfinished expression");
+    if(isNum(t))return parseFloat(t);
+    if(t==="("){const v=expr();if(next()!==")")throw new Error("Missing )");return v}
+    if(isId(t)){
+      if(t in F){
+        if(peek()==="("){next();const a=[];if(peek()!==")"){do{a.push(expr())}while(peek()===","&&next())}if(next()!==")")throw new Error("Missing )");return F[t](...a)}
+        return F[t](unary());
+      }
+      if(t in vars)return vars[t];if(t in C)return C[t]();
+      throw new Error(`Unknown "${t}"`);
+    }
+    throw new Error(`Unexpected "${t}"`);
+  };
+  if(!T.length)throw new Error("Empty");
+  const v=expr();if(p<T.length)throw new Error(`Unexpected "${T[p]}"`);return v;
+}
+function fmtN(x){
+  if(typeof x!=="number")return String(x);
+  if(!isFinite(x))return x!==x?"Math error":(x>0?"∞":"-∞");
+  if(Math.abs(x)<1e-13)return"0";
+  if(Math.abs(x)>=1e15||Math.abs(x)<1e-6)return x.toExponential(9).replace(/\.?0+e/,"e").replace("e+","e");
+  return String(+x.toPrecision(12));
+}
+function run(line){
+  let m=line.match(/^\s*([A-Za-z_]\w*)\s*=\s*(.+)$/),m2=!m&&line.match(/^(.+?)\s*(?:→|->)\s*([A-Za-z_]\w*)\s*$/),name=null,ex=line;
+  if(m){name=m[1];ex=m[2]}else if(m2){name=m2[2];ex=m2[1]}
+  if(name&&(name in F||name in C))throw new Error(`"${name}" is reserved`);
+  const v=evaluate(ex);if(name)vars[name]=v;return v;
+}
+const ln=q(".ln");
+function paintHist(){
+  const h=q(".hist");h.innerHTML="";
+  hist.forEach(x=>{const d=document.createElement("div");d.innerHTML='<span class="e"></span><span class="r"></span>';d.firstChild.textContent=x.e;d.lastChild.textContent=x.r;
+    d.firstChild.onclick=()=>{ln.value=x.e;ln.focus();live()};d.lastChild.onclick=()=>copy(x.r);h.append(d)});
+  h.scrollTop=h.scrollHeight;
+}
+function enter(){
+  const e=ln.value.trim();if(!e)return;
+  let r;try{const v=run(e);ans=v;r=fmtN(v)}catch(err){r="⚠ "+err.message}
+  hist.push({e,r});hi=hist.length;ln.value="";q(".live").textContent="";paintHist();
+}
+function live(){const e=ln.value.trim();let t="";if(e&&!/^[A-Za-z_]\w*\s*=/.test(e)){try{t="= "+fmtN(evaluate(e))}catch(_){}}q(".live").textContent=t}
+ln.addEventListener("input",live);
+ln.addEventListener("keydown",e=>{
+  if(e.key==="Enter")enter();
+  else if(e.key==="ArrowUp"&&hist.length){hi=Math.max(0,hi-1);ln.value=hist[hi].e;e.preventDefault()}
+  else if(e.key==="ArrowDown"&&hist.length){hi=Math.min(hist.length,hi+1);ln.value=hist[hi]?hist[hi].e:"";e.preventDefault()}
+});
+const KEYS=[["sin","sin("],["cos","cos("],["tan","tan("],["ln","ln("],["log","log("],
+ ["sin⁻¹","asin("],["cos⁻¹","acos("],["tan⁻¹","atan("],["√","sqrt("],["x²","^2"],
+ ["π","pi"],["e","e"],["xʸ","^"],["n!","!"],["Ans","ans"],
+ ["(","("],[")",")"],["abs","abs("],["nCr","nCr("],["mod"," mod "],
+ ["7","7"],["8","8"],["9","9"],["÷","/","op"],["⌫","BS","op"],
+ ["4","4"],["5","5"],["6","6"],["×","*","op"],["AC","AC","op"],
+ ["1","1"],["2","2"],["3","3"],["−","-","op"],["DEG","MODE","op"],
+ ["0","0"],[".","."],[",",","],["+","+","op"],["=","EQ","eq"]];
+KEYS.forEach(([l,v,c])=>{const b=document.createElement("button");b.textContent=l;if(c)b.className=c;if(v==="MODE")b.id="mode";b.dataset.v=v;q(".keys").append(b)});
+q(".keys").addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;const v=b.dataset.v;
+  if(v==="EQ")return enter();
+  if(v==="AC"){ln.value="";live();ln.focus();return}
+  if(v==="MODE"){angle=angle==="deg"?"rad":"deg";b.textContent=angle.toUpperCase();live();return}
+  const a=ln.selectionStart??ln.value.length,z=ln.selectionEnd??a;
+  if(v==="BS"){const s=a===z?Math.max(0,a-1):a;ln.value=ln.value.slice(0,s)+ln.value.slice(z);ln.setSelectionRange(s,s)}
+  else{ln.value=ln.value.slice(0,a)+v+ln.value.slice(z);ln.setSelectionRange(a+v.length,a+v.length)}
+  ln.focus();live();
+});
+/* ---- templates ---- */
+const TPL=[
+ {n:"Quadratic  ax² + bx + c = 0",f:[["a",1],["b",-3],["c",2]],r:([a,b,c])=>{
+   if(!a)return b?[["Linear root x",fmtN(-c/b)]]:[["No unique solution",""]];
+   const D=b*b-4*a*c,vx=-b/(2*a),o=[["Discriminant",fmtN(D)]];
+   if(D>=0){const s=Math.sqrt(D);o.push(["x₁",fmtN((-b+s)/(2*a))],["x₂",fmtN((-b-s)/(2*a))])}
+   else{const re=fmtN(-b/(2*a)),im=fmtN(Math.sqrt(-D)/(2*Math.abs(a)));o.push(["x₁",`${re} + ${im}i`],["x₂",`${re} − ${im}i`])}
+   o.push(["Vertex",`(${fmtN(vx)}, ${fmtN(a*vx*vx+b*vx+c)})`],["y-intercept",fmtN(c)]);return o}},
+ {n:"Linear  ax + b = c",f:[["a",2],["b",3],["c",11]],r:([a,b,c])=>a?[["x",fmtN((c-b)/a)]]:[[b===c?"Infinite solutions":"No solution",""]]},
+ {n:"System  a₁x + b₁y = c₁,  a₂x + b₂y = c₂",f:[["a₁",2],["b₁",1],["c₁",5],["a₂",1],["b₂",-1],["c₂",1]],r:([a1,b1,c1,a2,b2,c2])=>{
+   const D=a1*b2-a2*b1;if(!D)return[["Determinant 0","No unique solution"]];return[["x",fmtN((c1*b2-c2*b1)/D)],["y",fmtN((a1*c2-a2*c1)/D)]]}},
+ {n:"Statistics from a list",f:[["Numbers (comma or space separated)","3, 5, 8, 8, 12","t"]],r:([t])=>{
+   const a=t.split(/[\s,;]+/).filter(Boolean).map(Number);if(!a.length||a.some(isNaN))return[["Enter numbers",""]];
+   const n=a.length,s=a.reduce((x,y)=>x+y,0),m=s/n,so=[...a].sort((x,y)=>x-y),med=n%2?so[n>>1]:(so[n/2-1]+so[n/2])/2;
+   const cnt={};a.forEach(x=>cnt[x]=(cnt[x]||0)+1);const mx=Math.max(...Object.values(cnt)),mode=Object.keys(cnt).filter(k=>cnt[k]===mx);
+   const ss=a.reduce((x,y)=>x+(y-m)**2,0);
+   return[["Count",n],["Sum",fmtN(s)],["Mean",fmtN(m)],["Median",fmtN(med)],["Mode",mx>1?mode.join(", "):"none"],["Min / Max",`${fmtN(so[0])} / ${fmtN(so[n-1])}`],["Range",fmtN(so[n-1]-so[0])],["Population σ",fmtN(Math.sqrt(ss/n))],["Sample s",n>1?fmtN(Math.sqrt(ss/(n-1))):"—"]]}},
+ {n:"Right triangle (leave one side blank)",f:[["a",3,"o"],["b",4,"o"],["c (hypotenuse)","","o"]],r:([a,b,c])=>{
+   if(c===""&&a!==""&&b!=="")return[["c",fmtN(Math.hypot(a,b))]];
+   if(b===""&&a!==""&&c!=="")return c>a?[["b",fmtN(Math.sqrt(c*c-a*a))]]:[["Hypotenuse must be longest",""]];
+   if(a===""&&b!==""&&c!=="")return c>b?[["a",fmtN(Math.sqrt(c*c-b*b))]]:[["Hypotenuse must be longest",""]];
+   return[["Fill in exactly two sides",""]]}},
+ {n:"Percentages",f:[["x",20],["y",150]],r:([x,y])=>[["x% of y",fmtN(x/100*y)],["x is what % of y",fmtN(x/y*100)+"%"],["% change from x to y",fmtN((y-x)/x*100)+"%"],["y increased by x%",fmtN(y*(1+x/100))],["y decreased by x%",fmtN(y*(1-x/100))]]},
+ {n:"GCD, LCM &amp; prime factors",f:[["a",84],["b",36]],r:([a,b])=>{
+   let n=Math.abs(Math.round(a)),fs=[];for(let p=2;p*p<=n;p++)while(n%p===0){fs.push(p);n/=p}if(n>1)fs.push(n);
+   return[["GCD",fmtN(gcd(a,b))],["LCM",fmtN(Math.abs(a*b)/gcd(a,b))],["Prime factors of a",fs.join(" × ")||"—"]]}},
+ {n:"Base converter",f:[["Number","255","t"],["From base",10]],r:([s,b])=>{
+   const v=parseInt(s,b);if(isNaN(v))return[["Invalid number for that base",""]];return[["Decimal",v.toString(10)],["Binary",v.toString(2)],["Octal",v.toString(8)],["Hex",v.toString(16).toUpperCase()]]}},
+ {n:"Slope, distance &amp; midpoint",f:[["x₁",1],["y₁",2],["x₂",4],["y₂",6]],r:([x1,y1,x2,y2])=>{
+   const o=[["Distance",fmtN(Math.hypot(x2-x1,y2-y1))],["Midpoint",`(${fmtN((x1+x2)/2)}, ${fmtN((y1+y2)/2)})`]];
+   if(x1===x2)o.push(["Slope","undefined (vertical line)"]);else{const m=(y2-y1)/(x2-x1);o.push(["Slope",fmtN(m)],["Line",`y = ${fmtN(m)}x + ${fmtN(y1-m*x1)}`])}return o}}
+];
+const sel=q(".tsel");TPL.forEach((t,i)=>sel.add(new Option(t.n.replace(/&amp;/g,"&"),i)));
+function build(){
+  const t=TPL[sel.value],box=q(".tf");box.innerHTML="";
+  t.f.forEach(([l,d,k])=>{const lab=document.createElement("label");lab.innerHTML="<span></span> ";lab.firstChild.textContent=l;const i=document.createElement("input");i.type="text";i.value=d;i.style.width=k==="t"&&l.length>8?"260px":"90px";i.dataset.k=k||"";lab.append(i);box.append(lab)});
+  calc();
+}
+function calc(){
+  const t=TPL[sel.value],out=q(".tr");out.innerHTML="";
+  try{
+    const vals=[...q(".tf").querySelectorAll("input")].map(i=>i.dataset.k==="t"?i.value:i.dataset.k==="o"&&i.value.trim()===""?"":evaluate(i.value));
+    t.r(vals).forEach(([l,v])=>{const d=document.createElement("div");d.className="kv";d.innerHTML='<span class="note"></span><span class="copy"></span>';d.firstChild.textContent=l;d.lastChild.textContent=v;out.append(d)});
+  }catch(e){out.innerHTML='<div class="warn"></div>';out.firstChild.textContent=e.message}
+}
+sel.onchange=build;q(".tf").addEventListener("input",calc);build();
+})();
+</script>
+</section>
+
+<!--
+===== NEW TOOL TEMPLATE: copy this block, remove the comment markers, edit =====
+<section class="tool" id="my-tool" data-title="My tool">
+<details open>
+  <summary><h2>My tool</h2><span class="desc">One-line description.</span></summary>
+  <div class="body">
+    <input type="text" class="in"> <button class="go">Go</button>
+    <span class="copy res"></span>
+  </div>
+</details>
+<script>
+(()=>{
+const root=document.currentScript.closest("section"),q=s=>root.querySelector(s);
+q(".go").onclick=()=>{q(".res").textContent=q(".in").value.toUpperCase()};
+})();
+</script>
+</section>
+-->
+</main>
+</div>
+<div id="toast" role="status"></div>
+
+<script>
+/* Auto-builds the contents list, numbering, scroll-spy, filter and expand/collapse */
+(()=>{
+const secs=$("section.tool"),nav=q("#tocnav"),links=new Map();
+const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+secs.forEach((s,i)=>{const a=document.createElement("a");a.href="#"+s.id;a.innerHTML=`<span>${i+1}</span>${esc(s.dataset.title||s.id)}`;nav.append(a);links.set(s,a)});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.remove("on"));links.get(e.target).classList.add("on")}}),{rootMargin:"-10% 0px -70% 0px"});
+secs.forEach(s=>io.observe(s));
+function openHash(){try{const t=location.hash&&q(location.hash);const d=t&&(t.querySelector("details")||t.closest("details"));if(d)d.open=true}catch(e){}}
+addEventListener("hashchange",openHash);openHash();
+q("#tocq").addEventListener("input",e=>{const v=e.target.value.toLowerCase();secs.forEach(s=>{const hit=(s.dataset.title+" "+s.textContent).toLowerCase().includes(v)&&(s.dataset.title||"").toLowerCase().includes(v)||(s.dataset.title||"").toLowerCase().includes(v);s.hidden=!hit;links.get(s).hidden=!hit})});
+const all=o=>secs.forEach(s=>s.querySelector(":scope>details").open=o);
+q("#exp").onclick=()=>all(true);q("#col").onclick=()=>all(false);
+})();
+</script>
+</body>
+</html>
+
