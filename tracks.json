@@ -144,7 +144,43 @@
   {"title":"Nowhere Land","artist":"Kevin MacLeod","label":"Win Area","url":"https://youtu.be/ExzCp14RMDI"}
   
   ]},
-  
+
+ {"name":"Citadel of Void","kind":"tower","color":"#65666D","logo":"https://static.wikia.nocookie.net/ktoh/images/a/a7/CoVTitleSubmission.webp/revision/latest?cb=20260610025950","tracks":[
+
+  {"title":"Galeem/Dharkon","artist":"Super Smash Bros. Ultimate","label":"Floor 1","color":"#6B327C","url":"https://youtu.be/Ia4VAHpWbYA"},
+  {"title":"Abyss 2","artist":"F-777","label":"Floor 2","color":"#506D54","url":"https://youtu.be/o_PcTYvBXtQ"},
+  {"title":"Captain (I.D.P.D. Captain Theme)","artist":"Nuclear Throne","label":"Floor 2","note":"Previously","color":"#506D54","url":"https://youtu.be/V3ASJZ2dsMg"},
+  {"title":"I Will Give You My All 2017","artist":"PAYDAY 2","label":"Floor 3","color":"#F8D96D","url":"https://youtu.be/PTn23s0BjEo"},
+  {"title":"Lunar Abyss","artist":"Lchavasse","label":"Floor 4","color":"#6A3909","url":"https://youtu.be/F_TV4vZRSE8"},
+  {"title":"Carmeaty Burana","artist":"Super Meat Boy","label":"Floor 5","color":"#0010B0","url":"https://youtu.be/CRiyU6JZ3LE"},
+  {"title":"Underworld","artist":"Spaze","label":"Floor 6","color":"#3D1585","url":"https://youtu.be/zJRR2X8yIKo"},
+  {"title":"This Is September","artist":"Cyranek & GodOVA","label":"Floor 6","note":"Previously","color":"#3D1585","url":"https://youtu.be/w_TxAtoahLs"},
+  {"title":"Morphine (Dark Room)","artist":"The Binding of Isaac: Antibirth","label":"Floor 7","color":"#000000","url":"https://youtu.be/Ty7rXwPvFMI"},
+  {"title":"The Armor of God","artist":"Xtrullor","label":"Floor 8","color":"#FF00BF","url":"https://youtu.be/ejstqcE6jQk"},
+  {"title":"dropdead","artist":"Frums","label":"Floor 9","color":"#FF0000","url":"https://youtu.be/Ow4eYirS-2A"},
+  {"title":"Night of Fire","artist":"Initial D","label":"Floor 9","note":"Previously","color":"#FF0000","url":"https://youtu.be/SRbhLtjOiRc"},
+  {"title":"Beast Ganon (Phase 1)","artist":"The Legend of Zelda: Breath of the Wild","label":"Floor 10/Dropper","color":"#5B5D69","url":"https://youtu.be/GZ27lgqmQM"},
+  {"title":"Crystallize","artist":"Creo","label":"Floor 11-12","color":"#D5733D","url":"https://youtu.be/ZUDdM55I9HA"},
+  {"title":"Passage D","artist":"The Flashbulb","label":"Floor 13","color":"#000000","url":"https://youtu.be/ZYHtD5Avj7s"},
+  {"title":"Rupture","artist":"Waterflame","label":"Floor 14","color":"#008F9C","url":"https://youtu.be/IGHurR9nvMY"},
+  {"title":"Cannibal","artist":"Waterflame","label":"Floor 15","color":"#2154B9","url":"https://youtu.be/Kd-JK8UWe7c"},
+  {"title":"mom","artist":"w_tre","label":"Floor 16A","color":"#00FFFF","url":"https://youtu.be/TM2BoOzosyE"},
+  {"title":"Super Inhu Boy","artist":"SoInhumane","label":"Floor 16B","color":"#00FFFF","url":"https://youtu.be/bNzcJxVkCAE"},
+  {"title":"Enigma","artist":"Toromaru","label":"Floor 17A","color":"#1B2A35","url":"https://youtu.be/rLGX9kMBQD4"},
+  {"title":"Enigma II","artist":"Toromaru","label":"Floor 17B","color":"#1B2A35","url":"https://youtu.be/XGC27E9IHEc"},
+  {"title":"Mata Saitama 2000","artist":"Taiko no Tatsujin","label":"Floor 17's Mania","color":"#1B2A35","url":"https://youtu.be/qpmFegGoazU"},
+  {"title":"Main Theme","artist":"The Binding of Isaac","label":"Floor 18","color":"#564236","url":"https://youtu.be/of_2Bfh7ZhA"},
+  {"title":"Technoir (feat. Noir Deco)","artist":"Perturbator","label":"Floor 19/Dropper","color":"#F8F8F8","url":"https://youtu.be/TCfBOG6YfF8"},
+  {"title":"Machine in the Walls (Mausoleum)","artist":"The Binding of Isaac: Antibirth","label":"Floor 20","color":"#002060","url":"https://youtu.be/qt5Hz-khZDs"},
+  {"title":"Subterranean Homesick Malign (Caves)","artist":"The Binding of Isaac: Antibirth","label":"Floor 20","note":"Previously","color":"#002060","url":"https://youtu.be/-avs_-1NrcQ"},
+  {"title":"Phobos","artist":"Solkrieg","label":"Floor 21A","color":"#883E3E","url":"https://youtu.be/zMsxKPtZDZ8"},
+  {"title":"Deimos","artist":"Solkrieg","label":"Floor 21B","color":"#883E3E","url":"https://youtu.be/aznl3fBCtVk"},
+  {"title":"ΩΩPARTS [osu! World Cup 2020]","artist":"Camellia","label":"Floor 22","color":"#635F62","url":"https://youtu.be/lc4nTM6M9KY"},
+  {"title":"Native Faith (Xenogen Remix)","artist":"Touhou 10: Mountain of Faith","label":"Floor 22","note":"Previously","color":"635F62","url":"https://youtu.be/BmLZZtqB2mA"},
+  {"title":"We Are People","artist":"Detroit: Become Human","label":"Floor 22 Finale","color":"#635F62","url":"https://youtu.be/UtrtgTjey-I"}
+  ]},
+
+
  {"name":"Tower of EXAMPLES","kind":"tower","color":"#8f4c2a","tracks":[
   {"title":"Self Contained Universe (Reprise)","artist":"OneShot","label":"Floor 1","color":"#562424","url":""},
   {"title":"Sandy Wilds","artist":"Kirby's Return to Dream Land","label":"Floor 2","color":"#8F4C2A","url":""},
